@@ -1,2 +1,5 @@
 node_modules
-upload/*
+config.php
+access_token.json
+upload
+!upload/README.md

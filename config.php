@@ -1,7 +1,5 @@
 <?php
-
 // 全局配置文件
-
 //图片根目录
 defined('BASE_IMG') or define('BASE_IMG', 'http://examlab.cn/img/');
 
@@ -12,26 +10,12 @@ defined('LOG_PATH') or define('LOG_PATH', './log/');
 defined('QRCODE_PATH') or define('QRCODE_PATH', '../img/');
 
 // UNIBBS小程序信息
-defined('APPID') or define('APPID', 'wxb518954af3e70b39');
-defined('APPSECRET') or define('APPSECRET', '0e7ee5f0b1a5748e5ad7d5618ee01a29');
-
-//出个二手小程序的私密信息
-// define('APPID', 'wx4dedf206966c7f2d');
-// define('APPSECRET', '36934ee01de40488294f37d8dbbefb63');
-
-// 赛博科技服务号的私密信息
-defined('SAIBO_APPID') or define('SAIBO_APPID', 'wxbeb454d1e270db32');
-defined('SAIBO_APPSECRET') or define('SAIBO_APPSECRET', '17bd477b669a9b976c450930fbddc46d');
-defined('SAIBO_AES') or define('SAIBO_AES', 'QTr8wGFws55ZB4Yl5u2vQ3j6rNj41slXL5Bq0LEDXEQ');
-defined('SAIBO_TOKEN') or define('SAIBO_TOKEN', 'unigoods');
-
-//define('SAIBO_APPID', 'wxbeb454d1e270db32');
-//define('SAIBO_APPSECRET', '17bd477b669a9b976c450930fbddc46d');
+defined('APPID') or define('APPID', 'wxa5157e1eaaeb33c7');
+defined('APPSECRET') or define('APPSECRET', '6a74a5d730328d28a0ab766616395a5d');
 
 
 // 腾讯地图KEY
 defined('MAPKEY') or define('MAPKEY', 'ZT2BZ-C7FWP-DUMD2-VASMB-EUKXJ-ADF7N');
-
 defined('__ROOT__') or define('__ROOT__', realpath(__DIR__));
 
 // 数据库配置相关

@@ -9,3 +9,5 @@ ssh文件夹禁止提交到仓库
 
 - 在项目根目录下新建log文件夹
 - 在项目根目录下新建access_token.json
+- 在项目根目录下新建config.php
+

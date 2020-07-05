@@ -1,7 +1,4 @@
 <?php
-
-
-
 include('log.class.php');
 include('http.class.php');
 include('config.php');
