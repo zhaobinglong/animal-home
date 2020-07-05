@@ -1,5 +1,5 @@
 // 定义基础url 
-const BASE_URL = "https://examlab.cn/uniapi/wechat.php?ctrl=api&action=";
+const BASE_URL = "https://examlab.cn/animal/wechat.php?ctrl=api&action=";
 
 // 定义http 请求类
 class HTTP {
