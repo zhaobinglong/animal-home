@@ -1,0 +1,8 @@
+
+{
+  "navigationBarTitleText": "我的发布",
+   "usingComponents": {
+    "waterfall": "../../../components/waterfall/index",
+    "empty": "../../../components/empty/index"
+  }
+}

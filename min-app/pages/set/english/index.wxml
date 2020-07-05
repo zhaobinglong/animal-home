@@ -1,0 +1,13 @@
+
+<view class="page">
+    <image src="../../../img/160330152.png"  mode="widthFix" class="logo"></image>
+    <input focus placeholder="请输入准考证号" bindinput="input" data-name="zkzh" value="{{ form.zkzh }}"/>
+    <input  placeholder="请输入姓名" bindinput="input" data-name="xm" value="{{ form.xm }}"/>
+    <view wx:if="{{ show_code }}">
+	    <image src="{{img}}" class='detail_avatar' mode="widthFix" bindtap="getCode"></image>
+	    <input  placeholder="请输入验证码" bindinput="input" data-name="yzm"/>
+	    <button class="" bindtap="getScore" type="primary">获取成绩</button>
+    </view>
+    <button class="" bindtap="getCode" wx:if="{{ !show_code }}" type="primary">点击获取验证码</button>
+    <FloatButton openType="contact"></FloatButton>
+</view>

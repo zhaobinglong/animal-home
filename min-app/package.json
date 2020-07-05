@@ -1,0 +1,19 @@
+{
+  "dependencies": {
+    "miniprogram-datepicker": "^0.3.0",
+    "umtrack-wx": "^2.2.2"
+  },
+  "name": "unibbs",
+  "description": "微信小程序",
+  "version": "1.0.0",
+  "main": "app.js",
+  "directories": {
+    "lib": "lib"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC"
+}

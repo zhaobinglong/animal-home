@@ -1,0 +1,36 @@
+<view class='detail_box '>
+  <header userinfo="{{ form }}" obj="{{ form }}" />
+</view>
+
+<!-- 主体内容区域 -->
+<view class='detail_cont' >
+  <!--主体文案 -->
+  <text >{{form.cont}}</text> 
+  <view> {{ form.cont_tips }} </view> 
+  <!-- 主体图片 -->
+  <view class="detail_swiper">
+    <swiper  indicator-dots="{{indicatorDots}}"  indicator-active-color="#7ed321" autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}" bindchange="swiperChange" style="height:{{Hei}}" wx:if="{{ form.imgs.length }}">
+      <block wx:key wx:for="{{form.imgs}}"  wx:for-item="imgname" wx:key="index" >
+        <swiper-item>
+          <image bindtap="clickImg" src="{{imgname}}" class='swiper_item'  bindload='imgLoad'  mode="widthFix" data-name="{{imgname}}"  />
+        </swiper-item>
+      </block>
+    </swiper>
+    <!--价格tag -->
+    <view class='detail_price ib bg-w' wx:if="{{ form.price }}" >{{form.symbol}}{{form.price}}</view>
+    <!-- 已卖出tag -->
+    <view wx:if="{{ form.status == '2' }}" class="detail_sell_down">
+      <view class="detail_sell_down_text">已卖出</view>
+    </view>  
+  </view>
+</view>
+
+
+<view class='detail_address flex flex_between' wx:if="{{ form.address && form.address != '你在哪里？' }}">
+   <view  class='flex '>
+       <image src="../../img/address.png" class='icon_address mr4' wx:if="{{form.address}}"></image>
+       <view>{{form.address}}</view>
+   </view>
+</view>            
+
+

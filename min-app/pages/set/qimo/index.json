@@ -1,0 +1,7 @@
+
+{
+  "navigationBarTitleText": "期末考试成绩",
+   "usingComponents": {
+    "FloatButton": "../../../components/floatButton/index"
+  }
+}

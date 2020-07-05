@@ -1,0 +1,16 @@
+[info]2020-03-18 09:50:29-- 微信推送数据：{"touser":"ok-v05YjZolVFZBTRYX-NgMw_ONA","template_id":"dgp1OjAIjfz2mr9PbLJ5U2vU4edvkLO0uXpjJhSfAy4","page":"pages\/date\/detail\/index?id=1116","data":{"thing1":{"value":"ok"},"thing2":{"value":"fine"}}}
+[info]2020-03-18 09:50:29--本地获取access_token过期时间：1584357958
+[info]2020-03-18 09:50:29--当前系统时间：1584525029
+[info]2020-03-18 09:50:29--token过期，重新请求
+[info]2020-03-18 09:50:29--向微信请求token，返回的结果是{"access_token":"31_RDLslpYRYIQC1p0Vpgl8g6xq3z-pWSwyCdJxEnw1Ybm-m5mze5eUhJVhA2IxnR5y90odk4cBp8mT3jzswkt4nJHaZC-1_61uh5VvVl_ksBcrI5PME2jf2RGBJimOEx_t3iNjnnirmG84TGkHENMaAGAXGF","expires_in":7200}
+[info]2020-03-18 09:50:29--当前系统时间：1584525029
+[info]2020-03-18 09:50:29--保存后的时间：1584532029
+[success]2020-03-18 09:50:29--accesstoken更新，本次token是31_RDLslpYRYIQC1p0Vpgl8g6xq3z-pWSwyCdJxEnw1Ybm-m5mze5eUhJVhA2IxnR5y90odk4cBp8mT3jzswkt4nJHaZC-1_61uh5VvVl_ksBcrI5PME2jf2RGBJimOEx_t3iNjnnirmG84TGkHENMaAGAXGF
+[info]2020-03-18 09:50:29-- 微信推送结果："{\"errcode\":0,\"errmsg\":\"ok\"}"
+[info]2020-03-18 13:14:15--token过期，重新请求
+[info]2020-03-18 13:14:15--向微信请求token，返回的结果是{"access_token":"31_ysScONsR6-0ItNrMPln1lKfCStahnAE1Fs4ts8TrzP47-9HsXbdKHeO0Mdm8xSql27CplnOgZdicLlJXT0J49R_5iH2-SuKvayr66Lx-CoA8P03gQQsytMatseqlxvE2YDLSn2WRZyyKJtpdATFfACALEQ","expires_in":7200}
+[info]2020-03-18 13:14:15--当前系统时间：1584537255
+[success]2020-03-18 13:14:15--accesstoken更新，本次token是31_ysScONsR6-0ItNrMPln1lKfCStahnAE1Fs4ts8TrzP47-9HsXbdKHeO0Mdm8xSql27CplnOgZdicLlJXT0J49R_5iH2-SuKvayr66Lx-CoA8P03gQQsytMatseqlxvE2YDLSn2WRZyyKJtpdATFfACALEQ
+[info]2020-03-18 13:14:18--token没有过期，直接返回
+[info]2020-03-18 13:14:18--过期时间：1584544255
+[info]2020-03-18 13:14:18--当前时间：1584537258

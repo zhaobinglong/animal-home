@@ -1,0 +1,53 @@
+
+    <view class='' style="background:#F5F5F5">
+        <view class="f-mask z1" wx:if="{{show_subcate}}" bindtap="clickTypeMore"></view>
+        <view class="re z10">
+  
+          <!-- 搜索框 -->
+<!--           <view class="page_search border-b">
+             <view class='userInfo_item border_none flex between'> 
+                <view class='flex userInfo_item_input_box page_search_input'>
+                  <image src="../../../img/search.png" class='icon_search userInfo_item_input_icon'></image>
+                  <input name="input" class="userInfo_item_input " placeholder="输入关键词搜索" bindblur="search" value="{{value}}" />
+                </view>
+             </view>
+          </view>  -->     
+        </view>
+        
+        <!-- <view class='page_banner' bindtap="clickBanner">
+            <image src="{{college.top_img}}" class='page_list_college_img' mode="widthFix" ></image>
+            <view class='page_list_top_yesterday'>昨日访客 {{ list.length? yesterday : '0'}}</view>
+        </view> -->
+
+        <!-- 学校信息 -->
+<!--         <view class='flex  flex_between page_list_college'>
+           <view class='flex '>
+
+               <image src="{{college.logo}}" class='page_list_college_logo' bindtap='clickLogo' ></image>
+               <view class='page_list_college_desc'>
+                    <view class='fs28 flex'>
+                     <view class='page_list_college_name'>{{college.uName}}</view>
+                     <image src="../../../img/pass.png"  class='icon_price ml8'></image>
+                    </view>
+                    <view class='fw100'>{{college.count}}位成员·{{college.num}}个发布</view>
+               </view>   
+           </view>
+          <view class='flex flex_top'>
+             <image src="{{item.avatarUrl}}" wx:key wx:for="{{college.member}}" class='page_list_college_member mr8' wx:if="{{index<3}}"></image>
+             <button open-type="share" plain='true' class='button_reset'><image src='../../../img/member_more.png' class='page_list_college_member'></image></button>
+          </view>  
+        </view> -->        
+        <view >
+<!--         <block wx:if="{{ loading }}">
+          <loading></loading>
+        </block> -->
+          <block >
+            <waterfall list="{{list}}" load_over="{{load_over}}"></waterfall>
+          </block> 
+        </view>
+    </view>
+ <fixButton ></fixButton> 
+
+
+
+

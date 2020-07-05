@@ -1,0 +1,141 @@
+<wxs module="index" src="./index.wxs"></wxs>
+        <view class='user_info' >
+              <view class="user_info_top">
+                <image bindload="{{index.touchmove}}" src="{{userInfo.avatarUrl}}" class='userInfo_avatar' bindtap="clickAvatar"></image>
+                <view >
+                   <button class='button_reset  button_wechat_login' plain='true' open-type="getUserInfo" bindgetuserinfo="getUserInfoByButton" wx:if="{{ !userInfo.nickName }}">微信登录</button>
+                   <view wx:else class="user_info_name">
+                     <view>{{ userInfo.nickName  }}</view>
+                   </view>
+                </view> 
+              </view>
+              <view class="user_info_bottom" wx:if="{{ userInfo.nickName }}">
+                <view>
+                   <view>我的学校</view>
+                   <navigator hover-class="none" url="/pages/date/city/index" class='user_info_college' >{{userInfo.college || '点击选择学校'}}
+                     </navigator>
+                 </view>
+                <view>
+                   <view>我的帖子</view>
+                   <navigator hover-class="none" url="/pages/mypush/index?openid={{userInfo.openid}}" class='user_info_college' >{{myContentlist}}<!-- <image src="../../../img/down.png"  class='icon-arrow-down-s ml8'></image>  -->
+                     </navigator>
+                 </view>
+                <view>
+                  <view>我的消息</view>
+                  <navigator hover-class="none" url="/pages/set/message/index" class='user_info_college' >{{unread}}<!-- <image src="../../../img/down.png"  class='icon-arrow-down-s ml8'></image>  -->
+                     </navigator>
+                </view>
+              </view>
+              <view class="water">
+                <view class="water-c">
+                  <view class="water-1"> </view>
+                  <view class="water-2"> </view>
+                </view>
+              </view>
+        </view>
+        <view class="menu" >
+        <!-- <view class='user_info_message flex flex_between ' bindtap="clickMessage" >
+          <view class=" flex flex_center">
+            <image src="../../../img/v2/message.png" mode="aspectFit" class='user_info_message_icon' bindtap="clickMessage" ></image>
+            我的消息
+          </view>
+          <view class="flex flex_center" >
+            <view class='tabBar_item_badge' wx:if="{{num>0}}">{{num}}</view>
+            <view class='user_info_message_badge' wx:if="{{num>0}}">{{num}}</view>
+            <image src="../../../img/v2/enter.png" class='user_info_message_icon'  mode="aspectFit"></image>
+                      
+          </view>
+        </view>  -->   
+        <navigator class='user_info_message flex flex_between ' url="/pages/set/qimo/index?college={{ userInfo.college }}" open-type="navigate" app-id="wx8abaf00ee8c3202e" extra-data="{{ extraData }}">
+          <view class=" flex flex_center">
+            <view class="iconfont icon-zhongwenyuyan fixed_icon user_info_message_icon"></view>     
+            查询期末考试成绩
+          </view>
+          <view class="flex flex_center" >
+            <image src="../../../img/v2/enter.png" class='user_info_message_icon'  mode="aspectFit"></image>        
+          </view>
+        </navigator> 
+<!--         <navigator class='user_info_message flex flex_between ' url="/pages/set/yan/index" open-type="navigate" app-id="wx8abaf00ee8c3202e" extra-data="{{ extraData }}">
+          <view class=" flex flex_center">
+            <view class="iconfont icon-zhongwenyuyan fixed_icon user_info_message_icon"></view>     
+            查询考研成绩
+          </view>
+          <view class="flex flex_center" >
+            <image src="../../../img/v2/enter.png" class='user_info_message_icon'  mode="aspectFit"></image>        
+          </view>
+        </navigator>  -->
+<!--         <navigator class='user_info_message flex flex_between ' url="/pages/set/english/index" open-type="navigate" app-id="wx8abaf00ee8c3202e" extra-data="{{ extraData }}">
+          <view class=" flex flex_center">
+            <view class="iconfont icon-yingyu fixed_icon user_info_message_icon"></view>     
+            查询四六级成绩
+          </view>
+          <view class="flex flex_center" >
+            <image src="../../../img/v2/enter.png" class='user_info_message_icon'  mode="aspectFit"></image>        
+          </view>
+        </navigator>  -->  
+        <navigator class='user_info_message flex flex_between ' url="/pages/set/teacher/index" open-type="navigate" app-id="wx8abaf00ee8c3202e" extra-data="{{ extraData }}">
+          <view class=" flex flex_center">
+            <view class="iconfont icon-xuejiyidongguanli fixed_icon user_info_message_icon"></view>     
+            查询教师资格证成绩
+          </view>
+          <view class="flex flex_center" >
+            <image src="../../../img/v2/enter.png" class='user_info_message_icon'  mode="aspectFit"></image>        
+          </view>
+        </navigator> 
+        <navigator class='user_info_message flex flex_between ' url="/pages/set/language/index" open-type="navigate" app-id="wx8abaf00ee8c3202e" extra-data="{{ extraData }}">
+          <view class=" flex flex_center">
+            <view class="iconfont icon-zhongwenyuyan fixed_icon user_info_message_icon"></view> 
+            查询普通话等级成绩
+          </view>
+          <view class="flex flex_center" >
+            <image src="../../../img/v2/enter.png" class='user_info_message_icon'  mode="aspectFit"></image>        
+          </view>
+        </navigator> 
+        <button class='user_info_message flex flex_between' open-type="contact" >
+          <view class=" flex flex_center">
+            <image src="../../../img/v2/kefu.png" mode="aspectFit" class='user_info_message_icon' bindtap="clickMessage" ></image>
+             在线客服
+          </view>
+          <view class="flex flex_center" >
+            <image src="../../../img/v2/enter.png" class='user_info_message_icon'  mode="aspectFit"></image>    
+          </view>
+        </button> 
+<!--         <navigator class='user_info_message flex flex_between ' url="/pages/feedback/index" open-type="navigate" app-id="wx8abaf00ee8c3202e" extra-data="{{ extraData }}">
+          <view class=" flex flex_center">
+            <image src="../../../img/v2/comment.png" mode="aspectFit" class='user_info_message_icon' bindtap="clickMessage" ></image>
+             加入校园合伙人
+          </view>
+          <view class="flex flex_center" >
+            <image src="../../../img/v2/enter.png" class='user_info_message_icon'  mode="aspectFit"></image>        
+          </view>
+        </navigator>  -->
+<!--         <navigator class='user_info_message flex flex_between ' url="/pages/feedback/index" open-type="navigate" app-id="wx8abaf00ee8c3202e" extra-data="{{ extraData }}">
+          <view class=" flex flex_center">
+            <image src="../../../img/v2/comment.png" mode="aspectFit" class='user_info_message_icon' bindtap="clickMessage" ></image>
+             加入校园合伙人
+          </view>
+          <view class="flex flex_center" >
+            <image src="../../../img/v2/enter.png" class='user_info_message_icon'  mode="aspectFit"></image>        
+          </view>
+        </navigator>  -->
+      </view>
+        <!-- 分类 -->
+<!--         <view class='my_type flex flex_around'>
+            <view  bindtap="onClickType" data-type="timeline" class=" {{ current_type === 'timeline' ? 'my_type_select' : 'my_type_item' }}" >动态</view>
+            <view  bindtap="onClickType" data-type="shop" class="{{ current_type === 'shop' ? 'my_type_select' : 'my_type_item' }}" >出售</view>
+        </view> -->
+        
+<!--         <view wx:if="{{ current_type === 'timeline' }}">
+        	<feed list="{{list}}" load_over="{{ no_page }}"  bindclickevent="onClickEvent" bindlikedevent="onUserLike"></feed>
+        </view>
+        <view wx:else>
+          <waterfall list="{{goods}}" load_over="{{ no_page }}"  ></waterfall>
+        </view> -->
+<!--    <view class='user_info_share_box'>
+     <button open-type="share" plain='true' class='button_reset user_info_share_button'>
+        <image src="../../../img/userInfo_share.png" class='user_info_share'></image>
+     </button>
+   </view> -->
+  
+   <!-- <floatButton ></floatButton> -->
+

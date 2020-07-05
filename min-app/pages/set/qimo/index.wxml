@@ -1,0 +1,13 @@
+
+<view class="page">
+    <image src="../../../img/logo.jpeg"  mode="widthFix" class="logo"></image>
+    <input focus placeholder="请输入教务系统帐号" bindinput="input" data-name="username" value="{{ form.username }}"/>
+    <input  placeholder="请输入密码" bindinput="input" data-name="password" value="{{ form.password }}"/>
+    <view wx:if="{{ show_code }}">
+	    <image src="{{img}}" class='detail_avatar' mode="widthFix" bindtap="getCode"></image>
+	    <input  placeholder="请输入验证码" bindinput="input" data-name="yzm"/>
+	    <button class="" bindtap="getScore" type="primary">登陆系统</button>
+    </view>
+    <button class="" bindtap="getCode" wx:if="{{ !show_code }}" type="primary">点击获取验证码</button>
+    <FloatButton openType="contact"></FloatButton>
+</view>

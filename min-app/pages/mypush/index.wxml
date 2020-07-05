@@ -1,0 +1,8 @@
+  <view>
+    <view wx:if="{{ list.length }}">
+      <waterfall list="{{list}}" load_over="{{load_over}}"></waterfall>
+    </view>
+    <view wx:else>
+      <empty></empty>
+    </view>
+  </view>

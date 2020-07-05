@@ -1,0 +1,53 @@
+/*@import "../../common/wxss/button.wxss";
+@import "../../common/wxss/common.wxss";
+@import "../../common/wxss/userinfo.wxss";*/
+
+/*评论区域*/
+.replay_message {
+  padding: 0 36rpx;
+  font-size: 28rpx;
+  line-height: 30rpx;
+}
+.replay_message_item_img{
+  width:80rpx;
+  height:80rpx;
+  position:absolute;
+  left:0;
+  top:20rpx;
+}
+
+.replay_message_item{
+  border-bottom:1rpx solid #f1f1f1;
+  padding:20rpx 0;
+  min-height:120rpx;
+}
+.replay_message_item_red_point {
+  width: 20rpx;
+  height:20rpx;
+  background-color: red;
+  border-radius: 50%;
+  position: absolute;
+  left: -10rpx;
+  top: 10rpx;
+  z-index: 2
+}
+.replay_message_item_right{
+  flex-direction:column;
+  padding-left:100rpx;
+  line-height:30rpx;
+}
+.replay_message_item_right_top {
+  display: flex;
+  justify-content:space-between;
+}
+.replay_message_item_nickname{
+  margin-bottom:20rpx;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+}
+.replay_message_item_time{
+  font-size: 24rpx;
+  color: #999;
+  flex-shrink: 0;
+}

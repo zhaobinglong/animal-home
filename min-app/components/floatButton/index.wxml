@@ -1,0 +1,9 @@
+<!-- open-type="contact" -->
+<view  class='fixed' bindtap="onClick" wx:if="{{openType}}">
+    <button class='button_opacity' open-type="{{ openType }}"  >
+      <i class="iconfont fixed_icon {{ icon }}" ></i>
+    </button> 
+</view>
+<view  class='fixed' bindtap="onClick" wx:else>
+    <i class="iconfont fixed_icon {{ icon }}" ></i>
+</view>

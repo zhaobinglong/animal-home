@@ -1,0 +1,13 @@
+<view class='replay_message'>
+  <view class='replay_message_item' wx:key="index"   wx:for="{{list}}" wx:for-item="item" wx:if="{{item.cont}}" bindtap="clickItem" data-index="{{index}}" data-item="{{ item }}">
+     <view class="replay_message_item_red_point" wx-if="{{ !item.status }}"></view>
+     <image src="{{item.avatarUrl || '../../../img/logo.png'}}" class='replay_message_item_img'></image>  
+     <view class='replay_message_item_right'>
+        <view class='replay_message_item_right_top'>
+          <view class='replay_message_item_nickname'>{{item.nickName || 'UNIBBS用户'}}</view>
+          <view class='replay_message_item_time'>{{item.createtime}}</view>                
+        </view>
+        <text>{{item.cont}}</text>
+     </view>       
+  </view>
+</view>

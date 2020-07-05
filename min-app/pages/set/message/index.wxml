@@ -1,0 +1,11 @@
+
+<view >
+  <view wx:if="{{ !loading }}">
+    <view wx:if="{{ message.length }}">
+      <message list="{{ message }}" ></message>
+    </view>
+    <view wx:else>
+      <empty></empty>
+    </view>    
+  </view>
+</view>

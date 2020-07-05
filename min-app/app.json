@@ -1,0 +1,70 @@
+{
+  "pages": [
+    "pages/home/index",
+    "pages/date/classify/index",
+    "pages/date/select/index",
+    "pages/date/detail/index",
+    "pages/create/index",
+    "pages/date/share/index",
+    "pages/date/error/index",
+    "pages/date/city/index",
+    "pages/date/success/index",
+    "pages/reply/index",
+    "pages/mypush/index",
+    "pages/set/feedback/index",
+    "pages/set/index/index",
+    "pages/set/about/index",
+    "pages/set/message/index",
+    "pages/set/join/index",
+    "pages/set/textArea/index",
+    "pages/set/form/index",
+    "pages/set/english/index",
+    "pages/set/teacher/index",
+    "pages/set/language/index",
+    "pages/set/yan/index",
+    "pages/set/qimo/index",
+    "pages/set/score/index",
+    "pages/test/index",
+    "pages/out/index",
+    "pages/feedback/index"
+  ],
+  "tabBar": {
+    "color": "#AAAAAA",
+    "selectedColor": "#AAAAAA",
+    "list": [
+      {
+        "pagePath": "pages/home/index",
+        "iconPath": "img/tab/tabBar_home.png",
+        "selectedIconPath": "img/tab/tabBar_home_select.png",
+        "text": "动物广场"
+      },
+      {
+        "pagePath": "pages/set/index/index",
+        "iconPath": "img/tab/tabBar_user.png",
+        "selectedIconPath": "img/tab/tabBar_user_select.png",
+        "text": "我的"
+      }
+    ]
+  },
+  "window": {
+    "navigationBarTextStyle": "white",
+    "navigationBarBackgroundColor": "#189AF8",
+    "navigationBarTitleText": "滁州动保",
+    "backgroundColor": "#189AF8",
+    "enablePullDownRefresh": true
+  },
+  "navigateToMiniProgramAppIdList": [
+    "wx8abaf00ee8c3202e"
+  ],
+  "networkTimeout": {
+    "request": 20000,
+    "downloadFile": 2000
+  },
+  "debug": false,
+  "permission": {
+    "scope.userLocation": {
+      "desc": "你的位置信息将用于小程序位置接口的效果展示"
+    }
+  },
+  "sitemapLocation": "sitemap.json"
+}

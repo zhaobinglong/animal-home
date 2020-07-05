@@ -1,0 +1,7 @@
+
+{
+  "navigationBarTitleText": "普通话等级考试",
+   "usingComponents": {
+    "FloatButton": "../../../components/floatButton/index"
+  }
+}

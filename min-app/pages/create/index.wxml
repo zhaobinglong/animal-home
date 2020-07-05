@@ -1,0 +1,66 @@
+
+<view class='page_create'>
+
+      <div class='border-b'>
+        <view class='page_create_item '  >
+            <span class='date_edit_cont_img_box ' wx:for="{{form.tempFilePaths}}" wx:for-index="idx" wx:key="{{idx}}">
+                 <image src="{{item}}" class='date_edit_cont_img ' bindtap="addImg" mode="aspectFill" bindtap="preViewImg" data-index="{{idx}}"></image >
+                 <image src="../../../img/img_del.png" class='icon_img_del' bindtap="delImg" data-index="{{idx}}" ></image>
+            </span>
+            <span class='date_edit_cont_img_box re sq_more_img'>
+               <image src="../../img/more_img.png" class='sq_more_img' bindtap="addImg"  ></image>
+            <!--    <view class="color-tip f14 ab" style="bottom: 5px;left: 13px;">添加图片</view> -->
+            </span>
+        </view>
+        <view class='page_create_item ' style='padding-bottom:-30rpx'>
+          <textarea  maxlength="-1"  placeholder="介绍一下这只小宝贝吧" data-value="cont" bindinput="bindInput" value="{{form.cont}}"  class='page_create_textarea ' placeholder-class="ph-color-tip" />
+        </view>
+      </div>
+
+
+      <div class=' mb88'>
+           <view class='page_create_item flex between page_create_item_border' >
+              <view class="flex flex_grow" >
+               <view class="page_create_item_title mr10 w30" >{{form.symbol}}</view>
+               <input name="input" class="create_params" placeholder="小家伙的名字" bindinput="bindInput" data-value="price"  value="{{form.price}}" class='flex_grow'/>
+              </view>
+           </view>
+           <view class='page_create_item flex between page_create_item_border' >
+              <view class="flex flex_grow" >
+               <view class="page_create_item_title mr10 w30" >{{form.symbol}}</view>
+               <input name="input" class="create_params" placeholder="年龄" bindinput="bindInput" data-value="price"  value="{{form.price}}" class='flex_grow'/>
+              </view>
+           </view>
+          <view class='page_create_item flex page_create_item_border' bindtap='chooseLocation' >
+             <view class='flex' style="width:100%">
+                <view class='mr10 w30 '>
+                    <image src="../../img/address.png" class='icon_address '></image>
+                </view>
+                <view class='flex' style="width:100%">{{form.address}}</view>
+             </view>
+             <image src="../../common/img/icon/right.png" class='userInfo_item_icon_right'></image>
+           </view>
+          <picker mode="selector" range="{{money}}" bindchange="chooseMoney" range-key="{{'name'}}">
+            <view class='page_create_item flex page_create_item_border' bindtap='chooseCategory' >
+               <view class='flex' style="width:100%">
+                  <view class='mr10 w30 '>
+                      <image src="../../img/v2/category.png" class='icon_address '></image>
+                  </view>
+                  <view class='flex' style="width:100%">{{form.category}}</view>
+               </view>
+               <image src="../../common/img/icon/right.png" class='userInfo_item_icon_right'></image>
+             </view> 
+           </picker> 
+           <view class='page_create_item_remark'> 
+            <!-- 请确保您的微信号可以被搜索到，在微信设置-隐私-添加我的方式中打开微信号搜索 -->
+           </view>
+      </div>
+
+      <form report-submit="true" bindsubmit="formSubmit" >
+        <view class="page_create_button_box flex" >
+          <button bindtap="sellDown"    class='button  button_del' formType="submit"  wx:if="{{form.is_edit}}">删除</button> 
+        </view>   
+      </form>  
+      <FloatButton icon="icon-emizhifeiji"  bindfloatbuttonevent="onClickFloatButton"></FloatButton> 
+</view>
+

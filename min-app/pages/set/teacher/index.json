@@ -1,0 +1,7 @@
+
+{
+  "navigationBarTitleText": "教师资格证成绩查询",
+   "usingComponents": {
+    "FloatButton": "../../../components/floatButton/index"
+  }
+}

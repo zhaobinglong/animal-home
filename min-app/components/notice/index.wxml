@@ -1,0 +1,7 @@
+
+<view class='notice {{ show ? "notice-height":"" }}' bindtap="clickNotice">
+  <view class="icon-svg45-copy iconfont notice-icon"></view>
+  <view class='notice-text'>
+    <view class="notice-animation">{{ notice.title || notice.cont }}</view>
+  </view>
+</view>

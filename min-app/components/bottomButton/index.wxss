@@ -1,0 +1,21 @@
+
+@import "../../common/wxss/font.wxss";
+@import "../../common/wxss/button.wxss";
+.fixed{
+   position: fixed;
+   width: 120rpx;
+   height: 120rpx;
+   bottom: 0;
+   left: 0;
+   right: 0;
+   width: 100%;
+   background-color: #189AF8;
+   text-align: center;
+   line-height: 120rpx;
+   color: #FFF
+}
+.fixed_icon{
+   color: #FFF;
+   font-size: 50rpx;
+   font-weight: bold;
+}

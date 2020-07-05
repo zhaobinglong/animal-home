@@ -1,0 +1,4 @@
+<!-- open-type="contact" -->
+<view  class='fixed' bindtap="onClick" >
+    {{ content }}学年
+</view>

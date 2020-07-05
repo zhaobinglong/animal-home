@@ -1,0 +1,41 @@
+
+<view class='share_img_box ' >
+  <view wx:if="{{ e.from == 'teacher'|| e.from == 'language'  }}" class="share_list">
+    <view wx:if="{{ e.from == 'teacher' }}">
+      <view class="share_list_line">
+        <view class="item_name">姓名：</view>
+        <view class="item_value">{{ e.xm }}</view>
+      </view>
+      <view class="share_list_line">
+        <view class="item_name">证件号码：</view>
+        <view class="item_value">{{ e.zjhm }}</view>
+      </view>
+    </view>
+    <view wx:for="{{ score }}" class="share_list_line">
+      <view class="item_name">{{ item.name }}:</view>
+      <view class="item_value" wx:if="{{ item.value_type == 'img' }}">
+        <image src="{{ item.value }}" mode="widthFix" style="width: 200rpx"></image>
+      </view>
+      <view class="item_value" wx:else>{{ item.value }}</view>
+    </view>
+  </view>
+  <view wx:else style="width: 100%">
+    <image src="{{img}}"  class="share_img" mode="widthFix" bindload="bindloadImage"></image>
+  </view>
+  <view class='share_button flex flex_between' wx:if="{{ e.from != 'teacher' && e.from != 'language' }}">
+       <view class='flex flex_center flex_grow' bindtap="downQrcode" >
+           <image src="../../../img/download.png" class='icon_card_share' ></image>保存图片
+      </view>  
+      <view class='share_button_line'>|</view>
+      <view class='flex flex_center flex_grow'>
+            <image src="../../../img/share.png" class='icon_card_share'></image>
+            <button open-type="share" plain='true' class='button_reset share_button_wechat' style='border:none'>分享到群聊</button>
+      </view>  
+  </view>
+
+ 
+</view>
+
+
+
+

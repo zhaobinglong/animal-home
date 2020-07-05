@@ -1,0 +1,16 @@
+
+<view class='' >
+  <view class="share_list">
+    <view wx:for="{{ score }}" class="share_list_line" wx:key>
+      {{ item }}
+    </view>
+  </view>
+  <view style="width: 100%">
+    <image src="{{item}}" wx:key bindtap="clickImg" data-name="{{item}}" class="share_img" mode="widthFix" bindload="bindloadImage" wx:for="{{ img }}"></image>
+  </view> 
+  <BottomButton bindbottombuttonevent="changeYear" content="{{ year }}"/>
+</view>
+
+
+
+

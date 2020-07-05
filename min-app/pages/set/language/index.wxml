@@ -1,0 +1,8 @@
+
+<view class="page">
+    <image src="../../../img/160330152.png"  mode="widthFix" class="logo"></image>
+    <input focus placeholder="请输入身份证号码" bindinput="input" data-name="idCard" value="{{ form.idCard }}"/>
+    <input  placeholder="请输入姓名" bindinput="input" data-name="name" value="{{ form.name }}"/>
+	<button class="" bindtap="getScore" type="primary">获取成绩</button>
+    <FloatButton openType="contact"></FloatButton>
+</view>

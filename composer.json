@@ -1,0 +1,8 @@
+{
+    "require": {
+        "catfan/medoo": "1.7.0",
+        "sunra/php-simple-html-dom-parser": "1.5.2",
+        "guzzlehttp/guzzle": "6.2.1",
+        "ralouphie/getallheaders": "^2"
+    }
+}
