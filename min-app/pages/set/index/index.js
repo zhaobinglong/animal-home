@@ -57,10 +57,10 @@ Page({
 
   onLoad: function(e) {
     let openid = wx.getStorageSync('openid');
-    let college = wx.getStorageSync('college');
+    // let college = wx.getStorageSync('college');
 
     this.setData({
-      college:college,
+      // college:college,
       openid: openid
     })
 
@@ -182,7 +182,6 @@ Page({
 
   // 获取后台用户信息
   getInfo(openid){
-     const self = this;
      app.api.getInfo(openid).then((res) => {
          console.log(res)
          
@@ -191,18 +190,10 @@ Page({
             res.avatarUrl = '../../../img/user.png'
          }
          
-         self.setData({
+         this.setData({
            userInfo:res,
-         }) 
-
-         wx.setStorageSync('userInfo', res)
-         
-         wx.setStorageSync('wechat', res.wechat)
-
-         wx.setNavigationBarTitle({
-          title: res.nickName
-         })       
-     },false)  
+         })   
+     })  
   },
 
 
@@ -281,10 +272,10 @@ Page({
         this.setData({
           userInfo: e.detail.userInfo
         })
-        userModel.updateUser(userInfo,function(res){
+        app.api.updateUser(userInfo).then((res) => {
           wx.setStorageSync('userInfo',userInfo)
           self.getInfo(userInfo.openid)
-        },false)     
+        })     
       } else {
         console.log(e)
       }

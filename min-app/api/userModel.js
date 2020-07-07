@@ -198,6 +198,14 @@ const push = (data) => {
     data: data
   })  
 }
+// 用户发布
+const updateUser = (data) => {
+  return http.request({
+    url: 'editUser',
+    method: 'POST',
+    data: data
+  })  
+}
 
 export default {
   requestSubscribeMessage,
@@ -213,6 +221,7 @@ export default {
   getTeacherCode,
   getTeacherScore,
   getOpenid,
+  updateUser,
   getLanguageScore,
   getShareImg,
   getMyMessage,

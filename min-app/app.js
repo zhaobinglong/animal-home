@@ -152,9 +152,9 @@ App({
       weibo: ''
     }
 
-    userModel.updateUser(data,function(res){
+    api.updateUser(data).then((res) => {
        console.log('在app.js中保存新用户')
-    },false)   
+    })   
   },
   
   // 通过点击按钮获取到用户信息
@@ -208,7 +208,7 @@ App({
 
     // 返回主页
   backHome (){
-    var url = '/pages/date/index/index';
+    var url = '/pages/home/index';
     console.log(url)
     wx.switchTab({
       url: url

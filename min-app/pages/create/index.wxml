@@ -5,11 +5,12 @@
         <view class='page_create_item '  >
             <span class='date_edit_cont_img_box ' wx:for="{{form.tempFilePaths}}" wx:for-index="idx" wx:key="{{idx}}">
                  <image src="{{item}}" class='date_edit_cont_img ' bindtap="addImg" mode="aspectFill" bindtap="preViewImg" data-index="{{idx}}"></image >
-                 <image src="../../../img/img_del.png" class='icon_img_del' bindtap="delImg" data-index="{{idx}}" ></image>
+                 <image src="../../img/img_del.png" class='icon_img_del' bindtap="delImg" data-index="{{idx}}" ></image>
             </span>
             <span class='date_edit_cont_img_box re sq_more_img'>
                <image src="../../img/more_img.png" class='sq_more_img' bindtap="addImg"  ></image>
-            <!--    <view class="color-tip f14 ab" style="bottom: 5px;left: 13px;">添加图片</view> -->
+              
+               <!-- <i class="iconfont icon-chongwu" ></i> -->
             </span>
         </view>
         <view class='page_create_item ' style='padding-bottom:-30rpx'>
@@ -18,34 +19,31 @@
       </div>
 
 
-      <div class=' mb88'>
+      <div class='mb88'>
            <view class='page_create_item flex between page_create_item_border' >
               <view class="flex flex_grow" >
-               <view class="page_create_item_title mr10 w30" >{{form.symbol}}</view>
-               <input name="input" class="create_params" placeholder="小家伙的名字" bindinput="bindInput" data-value="price"  value="{{form.price}}" class='flex_grow'/>
+               <i class="iconfont icon-yijianfankui" ></i>
+               <input  class="create_params" placeholder="小家伙的名字" bindinput="bindInput" data-value="name"  value="{{form.name}}" class='flex_grow'/>
               </view>
            </view>
            <view class='page_create_item flex between page_create_item_border' >
               <view class="flex flex_grow" >
-               <view class="page_create_item_title mr10 w30" >{{form.symbol}}</view>
-               <input name="input" class="create_params" placeholder="年龄" bindinput="bindInput" data-value="price"  value="{{form.price}}" class='flex_grow'/>
+               <i class="iconfont icon-nianling" ></i>
+               <input name="input" class="create_params" placeholder="年龄" bindinput="bindInput" data-value="age"  value="{{form.age}}" class='flex_grow'/>
               </view>
            </view>
           <view class='page_create_item flex page_create_item_border' bindtap='chooseLocation' >
              <view class='flex' style="width:100%">
-                <view class='mr10 w30 '>
-                    <image src="../../img/address.png" class='icon_address '></image>
-                </view>
+                <i class="iconfont icon-dizhi1" ></i>
                 <view class='flex' style="width:100%">{{form.address}}</view>
              </view>
              <image src="../../common/img/icon/right.png" class='userInfo_item_icon_right'></image>
            </view>
-          <picker mode="selector" range="{{money}}" bindchange="chooseMoney" range-key="{{'name'}}">
-            <view class='page_create_item flex page_create_item_border' bindtap='chooseCategory' >
+          <picker mode="selector" range="{{category}}" bindchange="chooseCategory" >
+            <view class='page_create_item flex page_create_item_border' >
                <view class='flex' style="width:100%">
-                  <view class='mr10 w30 '>
-                      <image src="../../img/v2/category.png" class='icon_address '></image>
-                  </view>
+                  
+                <i class="iconfont icon-biaoqian" ></i>
                   <view class='flex' style="width:100%">{{form.category}}</view>
                </view>
                <image src="../../common/img/icon/right.png" class='userInfo_item_icon_right'></image>

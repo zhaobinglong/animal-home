@@ -32,20 +32,10 @@ Page({
   // 如果是商品类，分享标题为：大学名字：价格 + 价格符号 + 描述
   onShareAppMessage: function() {
     // return app.wechatShare(this.data.form)
-    let is_goods = util.is_goods(this.data.form.category)
-    var title = '' 
-    let price  = '' 
-    if (this.data.form.price) {
-      price = this.data.form.price + this.data.form.symbol + ','
-    } else {
-      price = ''
-    } 
-    if (is_goods){
-      title = this.data.form.college+'：'+ price +this.data.form.cont;
-    } else {
-      title = this.data.form.college+'：'+ this.data.form.cont;
-    }
-    var path = "pages/date/detail/index?&id=" + this.data.form.id + '&college=' + this.data.form.college;
+
+    let title = this.data.form.name+'：'+ this.data.form.cont;
+  
+    var path = "pages/date/detail/index?&id=" + this.data.form.id
     wx.uma.trackEvent('detail_share', path);
     if (this.data.form.imgs.length) {
       return {
@@ -77,11 +67,6 @@ Page({
     })
   },
 
-  // 下拉刷新
-  onPullDownRefresh:function(e){
-     wx.stopPullDownRefresh();
-  },
-
   /**
   * 详情页面逻辑
   * 获取小程序码接口
@@ -102,86 +87,28 @@ Page({
   
     this.data.id = id;
     app.id = id;
-    // 如果是一个完全的新用户，本地没有任何缓存
-    // 把url中的college写入它的本地缓存中
-    // 如果url中没有大学，先给一个默认大学
-    // 详情页面的分享一定要保证带上大学字段
-    if (!wx.getStorageSync('college')) {
-      wx.setStorageSync('college', e.college || '北京大学')
-    }
-
     wx.showLoading();
-    if (wx.getStorageSync('classify')) {
-      this.getDetail(this.data.id)
-    } else {
-     app.api.getTypeList().then((res)=>{
-        wx.setStorageSync('classify',res)
-        this.getDetail(this.data.id)
-     },false)
-    }
-    
+    this.getDetail(this.data.id) 
+    this.getComment(this.data.id)
   },
 
   // 获取详情
   getDetail(id){
     const self = this;
     const openid = wx.getStorageSync('openid');
-    ershouModel.getDetail(id,function(r){
+    app.api.getDetail({id: id}).then((r) =>{
       console.log(r)
        var indicatorDots = false;
-       let res = r.res
-       app.globalData.last_detail = res
-       app.globalData.detail_share_img = null
-       if(res.status == 0){
-         self.setData({
-             form:res
-         })     
-          wx.hideLoading();
-          return false;
-       }else{
-
-         if(res.imgs.length == 1){
-            indicatorDots = false;
-         }
-         
-         if(res.openid == openid){
-             res.is_creater = true;
-         } else {
-            res.show_add_wechat = true;
-         }
-
-         if(!res.symbol){
-            res.symbol = config.default_symbol
-         }
-
-         res.current_img=res.imgs[0];
-         
-         // 考试通知类的官方消息没有college这个字段，
-         // 没有的话就从本地获取，本地也没有的话，给一个默认的北京大学
-         if (!res.college) {
-            res.college = wx.getStorageSync('college') || '北京大学'
-         }
-
-           self.setData({
-             form:res,
-             indicatorDots:indicatorDots
-           })
-
-          wx.hideLoading();
-          
-          // 新用户从分享的详情页面进入，写入college
-          if(!wx.getStorageSync('college')){
-            wx.setStorageSync('college',res.college)
-          }        
+       if (r.openid == wx.getStorageSync('openid')) {
+        r.is_creater = true
        }
+        this.setData({
+         form: r,
+         indicatorDots:indicatorDots
+       })
 
-       self.getComment(id)
-      
-    },false)
-
-    app.api.getShareImg(id).then(res => {
-      console.log(res)
-      app.globalData.detail_share_img = res
+      wx.hideLoading();
+            
     })
   },
 
@@ -256,7 +183,7 @@ Page({
 
   // 点击编辑按钮
   editClick:function(){
-    var url="../create/index?id="+this.data.form.id+"&type=edit"
+    var url="../../create/index?id="+this.data.form.id+"&type=edit"
     wx.navigateTo({
         url: url
     })    

@@ -22,15 +22,16 @@ Component({
     },
 
     loadData: function(){
-      if(this.data.form.imgs && this.data.form.imgs.length>1){
-        this.setData({
-          indicatorDots:true
-        })
-      }else{
-        this.setData({
-          indicatorDots:false
-        })        
-      }
+      console.log(this.data.form)
+      // if(this.data.form.imgs && this.data.form.imgs.length>1){
+      //   this.setData({
+      //     indicatorDots:true
+      //   })
+      // }else{
+      //   this.setData({
+      //     indicatorDots:false
+      //   })        
+      // }
     },
 
     // 点击头像，前往个人主页

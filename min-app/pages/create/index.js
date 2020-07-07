@@ -36,6 +36,7 @@ let cos = new COS({
 var app = getApp();
 Page({
   data: {
+    category: ['猫','狗'],
     form: {
       openid:'',
       title: '',
@@ -43,9 +44,9 @@ Page({
       imgs: [],
       imgs_detail: [], 
       is_new:false,
-      price:'',
+      age:'',
       timeStamp:0, //记录单击时间
-      college:'',
+      name:'',
       address:'小家伙来自哪里？',
       is_my:false,
       is_edit:false,
@@ -98,30 +99,20 @@ Page({
   onLoad: function(e) {
      const self = this;
      if(e.type == 'edit'){
-        ershouModel.getDetail(e.id,function(r){
-           r.res.is_edit = true;
-           if(r.res.openid == app.userInfo.openid){
-              r.res.is_my = true;
-           }
-           r.res.tempFilePaths=[];
-           for (var i = 0; i < r.res.imgs.length; i++) {
-              r.res.tempFilePaths.push(r.res.imgs[i]);
-           }
-           
-
-           if(!r.res.symbol){
-              r.res.symbol = config.default_symbol;
+        app.api.getDetail({id: e.id}).then((r) => {
+           r.is_edit = true;
+           r.tempFilePaths=[];
+           for (var i = 0; i < r.imgs.length; i++) {
+              r.tempFilePaths.push(r.imgs[i]);
            }
           
-           r.res.is_goods = util.is_goods_by_classify(r.res.classify)
-
            self.setData({
-               form:r.res
+               form:r
            })
            
            //下载目前的第一张图片
            // self.downLoadImg(res.tempFilePaths[0]);
-        },false)        
+        })        
      }else if(e.type=='add'){
        this.data.form.openid = wx.getStorageSync('openid');
        this.data.form.wechat = wx.getStorageSync('wechat') || '';
@@ -152,15 +143,7 @@ Page({
 
 
      // 判断storage中用户的信息全不全，如果没有头像和昵称，就重新获取一次用户信息
-     let userInfo = wx.getStorageSync('userInfo')
-     if (!userInfo.nickName) {
-       let openid = wx.getStorageSync('openid')
-       userModel.getUserInfo(openid,function(res){
-         if(res){
-            wx.setStorageSync('userInfo', res)
-         }
-       },false)
-     }
+
 
   },
   
@@ -181,7 +164,7 @@ Page({
   },
 
   onClickFloatButton() {
-    this.getUserInfo()
+    this.create()
   },
 
   // 页面准备好之后再判断
@@ -194,46 +177,6 @@ Page({
     this.setData({
        form:form
     })
-  },
-
-
-  // 选择货币
-  chooseMoney(e){
-    const self = this;
-    // const itemList = config.money.map(function(item,index){
-    //   return item.symbol
-    // })
-    // wx.showActionSheet({
-    //   itemList: itemList,
-    //   success: function(res) {
-    //     console.log(res.tapIndex)
-    //     const form = self.data.form;
-    //     form.symbol = config.money[res.tapIndex].symbol
-    //     self.setData({
-    //        form
-    //     })
-    //   },
-    //   fail: function(res) {
-    //     console.log(res.errMsg)
-    //   }
-    // }) 
-    const moneyArr = this.data.money;
-    const index = ~~e.detail.value
-    const form = self.data.form;
-    form.symbol = moneyArr[index].symbol
-    self.setData({
-       form
-    })    
-  },
-
-  changeLevel:function(e){
-     console.log(e)
-     var index = parseInt(e.detail.value);
-     var form = this.data.form;
-     form.level = this.data.level[index];
-     this.setData({
-        form
-     })
   },
 
   // 选择类型
@@ -262,17 +205,16 @@ Page({
     });    
   },
 
-  chooseCategory () {
-    wx.setStorageSync('create_store_act','showCategory')
-    wx.navigateTo({
-        url: '../classify/index'
+  chooseCategory (res) {
+    console.log(res.detail.value)
+    let index = parseInt(res.detail.value)
+    console.log(this.data.category[index])
+    let key = "form.category"
+    this.setData({
+      [key]: this.data.category[index]
     })
   },
   
-  // // 点击分类,弹出分类
-  // chooseType:function(){
-    
-  // },
 
   // 预览图片
   preViewImg(e){
@@ -291,19 +233,6 @@ Page({
     var name = e.target.dataset.value;
     var form = this.data.form;
     form[name] = e.detail.value;
-
-  },
-
-  /**
-  * 切换全新
-  **/
-  switchChange(e) {
-     console.log(e)
-     var form = this.data.form;
-     form.is_new = e.detail.value;
-     this.setData({
-        form
-     })
   },
 
   // 点击上传图片
@@ -345,7 +274,7 @@ Page({
           Key: key,
           FilePath: filePath,
           onProgress: function (info) {
-              console.log(JSON.stringify(info));
+            // console.log(JSON.stringify(info));
           }
       }, function (err, data) {
           console.log(data);
@@ -376,8 +305,6 @@ Page({
 
   },
 
-
-  // 删除这个二手
   sellDown(){
     this.data.form.status = '0';
     this.create();
@@ -385,12 +312,12 @@ Page({
   
   // 点击发布按钮，先尝试授权获取用户信息
   // 调用订阅消息，无法和获取用户信息一起
-  async getUserInfo(e){
-    let ids = ['dgp1OjAIjfz2mr9PbLJ5U2vU4edvkLO0uXpjJhSfAy4', 'w7HeJjn-_4G1i0wAkdw8M77f6vvZTpJYtlezi4CdO7s'];
-    let  appleSubscribeMessage = await app.api.requestSubscribeMessage(ids);
-    console.log(appleSubscribeMessage);
-    this.create();
-  },
+  // async getUserInfo(e){
+  //   let ids = ['dgp1OjAIjfz2mr9PbLJ5U2vU4edvkLO0uXpjJhSfAy4', 'w7HeJjn-_4G1i0wAkdw8M77f6vvZTpJYtlezi4CdO7s'];
+  //   let  appleSubscribeMessage = await app.api.requestSubscribeMessage(ids);
+  //   console.log(appleSubscribeMessage);
+  //   this.create();
+  // },
 
 
 
@@ -427,44 +354,20 @@ Page({
       this.data.form.address = ''
     }  
 
-    // 如果这个帖子是编辑状态，它已经发布在某个学校了，那么再次编辑的时候，学校名字不变 
-    if(!this.data.form.college) {
-      this.data.form.college = wx.getStorageSync('college');
+    if (!this.data.form.openid) {
+      this.data.form.openid = wx.getStorageSync('openid')
     }
 
-    wx.uma.trackEvent('click_push', this.data.form);
+    // wx.uma.trackEvent('click_push', this.data.form);
     wx.showLoading({title: '发布中…'});
-    ershouModel.push(this.data.form,function(res){
-        console.log(res)
-        wx.hideLoading();
-        if(res.res){
-           wx.showToast({
-            title: '成功',
-            icon: 'success',
-          })
-          if(self.data.form.status == '0'){
-              wx.navigateBack({
-                delta: 2
-              })             
-          }else{
-              // 保存用户第一次输入的基本信息，下次直接使用
-              wx.setStorageSync('wechat',self.data.form.wechat);
-              wx.setStorageSync('address',self.data.form.address);
-              wx.setStorageSync('symbol',self.data.form.symbol);
-              wx.redirectTo({
-                 url: '../success/index?from=create&id='+res.res.id
-              })            
-          }
-        } else {
-          wx.showToast({
-            icon: 'none',
-            title: res.data,
-          })
-        }
-
-        wx.uma.trackEvent('click_push_success', res);
-      },false)
-    },
+    app.api.push(this.data.form).then((res) =>{
+      wx.hideLoading();
+      wx.redirectTo({
+         url: '../success/index?from=create&id='+res.id
+      })            
+          
+    })
+  },
 
 
    // 点击选择城市

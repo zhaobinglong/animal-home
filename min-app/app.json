@@ -8,7 +8,7 @@
     "pages/date/share/index",
     "pages/date/error/index",
     "pages/date/city/index",
-    "pages/date/success/index",
+    "pages/success/index",
     "pages/reply/index",
     "pages/mypush/index",
     "pages/set/feedback/index",
@@ -30,12 +30,12 @@
   ],
   "tabBar": {
     "color": "#AAAAAA",
-    "selectedColor": "#AAAAAA",
+    "selectedColor": "#189AF8",
     "list": [
       {
         "pagePath": "pages/home/index",
-        "iconPath": "img/tab/tabBar_home.png",
-        "selectedIconPath": "img/tab/tabBar_home_select.png",
+        "iconPath": "img/tab/tabBar_place.png",
+        "selectedIconPath": "img/tab/tabBar_place.png",
         "text": "动物广场"
       },
       {

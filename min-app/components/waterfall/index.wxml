@@ -15,12 +15,12 @@
                         </view>
                         <view class='page_list_user flex between'>
                            <view class='flex page_list_user_item'>
-                              <image mode ="widthFix" src="{{item.avatarUrl}}" class='page_list_headimg'  ></image>
-                              <view >{{item.nickName}}<view class="userinfo_level userinfo_level_guan" wx:if="{{ item.user_status === '2' }}">官</view></view>
+                              <!-- <image mode ="widthFix" src="{{item.avatarUrl}}" class='page_list_headimg'  ></image> -->
+                              <view >{{item.name}}<view class="userinfo_level userinfo_level_guan" wx:if="{{ item.user_status === '2' }}">官</view></view>
                            </view>
-                           <view class='flex  page_list_item_price' wx:if="{{item.price && item.status!='2'}}">{{item.symbol}}{{item.price?item.price:'价格待议'}}</view>
+                           <view class='flex  page_list_item_price' wx:if="{{item.age}}">年龄：{{item.age?item.age + '岁':'不知道'}}</view>
                         </view>
-                        <image mode ="widthFix" src="../../img/sell.png" class='page_list_img_sell' wx:if="{{item.status == '2'}}" ></image>
+<!--                         <image mode ="widthFix" src="../../img/sell.png" class='page_list_img_sell' wx:if="{{item.status == '2'}}" ></image> -->
                      </view>
                  </navigator>
           </view>
@@ -39,15 +39,13 @@
                          {{item.cont}}
                         </view>
                         <view class='page_list_user flex between'>
-                           <view class='flex'>
-                              <image mode ="widthFix" src="{{item.avatarUrl}}" class='page_list_headimg'  ></image>
-                              <view>{{item.nickName}}<view class="userinfo_level userinfo_level_guan" wx:if="{{ item.user_status === '2' }}">官</view></view>
+                           <view class='flex page_list_user_item'>
+                              <!-- <image mode ="widthFix" src="{{item.avatarUrl}}" class='page_list_headimg'  ></image> -->
+                              <view >{{item.name}}<view class="userinfo_level userinfo_level_guan" wx:if="{{ item.user_status === '2' }}">官</view></view>
                            </view>
-                           <view class='flex  page_list_item_price' wx:if="{{item.price}}">
-                              {{item.symbol}}{{item.price?item.price:'价格待议'}}
-                           </view>
+                           <view class='flex  page_list_item_price' wx:if="{{item.age}}">年龄：{{item.age?item.age + '岁':'不知道'}}</view>
                         </view>
-                        <image mode ="widthFix" src="../../img/sell.png" class='page_list_img_sell' wx:if="{{item.status == '2'}}" ></image>
+
                      </view>
                  </navigator>
           </view>

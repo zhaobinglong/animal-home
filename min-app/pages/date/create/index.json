@@ -1,7 +1,0 @@
-
-{
-  "navigationBarTitleText": "填写发布内容",
-  "usingComponents": {
-    "FloatButton": "../../../components/floatButton/index"
-  }
-}

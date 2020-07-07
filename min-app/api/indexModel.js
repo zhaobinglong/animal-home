@@ -19,6 +19,13 @@ const  getList = (data) => {
     data: data
   })
 }
+const  getDetail = (data) => {
+  return http.request({
+    url: 'getDetail',
+    method: 'POST',
+    data: data
+  })
+}
 
 const  getListByUser = (data) => {
   return http.request({
@@ -35,5 +42,6 @@ const  getListByUser = (data) => {
 export default {
   setLangs,
   getList,
-  getListByUser
+  getListByUser,
+  getDetail
 }

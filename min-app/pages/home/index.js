@@ -284,43 +284,20 @@ Page({
       this.data.is_loading = true;
       let classify = self.data.classify === '全部' ? '':self.data.classify;
       // 如果没有参数，就获取当前url中的大学名字
-      ershouModel.getList({
-        college: name,
+      app.api.getList({
+        college: '西安外国语大学',
         classify: classify,
         category: self.data.category,
         page: page,
         openid: ''
-      },function(r){
-         // wx.hideLoading();
-         wx.hideNavigationBarLoading()
-         wx.stopPullDownRefresh();
-         self.data.is_loading = false;
-         // for (var i = 0; i < r.res.length; i++) {
-         //    r.res[i].is_goods = util.is_goods_by_classify(r.res[i].classify)
-         //    if(!r.res[i].symbol){
-         //       r.res[i].symbol = config.default_symbol
-         //    }
-         //   var time = parseInt(r.res[i].createtime)*1000;
-         //   r.res[i].formatDate = new Date(time).toLocaleDateString()
-         // }
-         const list =  self.data.list.concat(r.res);
-
-          self.setData({
-            list:list,
-            is_first_loading:false,
-            loading: false
-          })
-          
-          // 缓存首页列表数据
-          wx.setStorageSync('indexList', list)
-         // 如果返回小于十条，表示后面没有了
-         if(r.res.length<20){
-            self.setData({
-               no_page:true
-            })
-         }
-         self.data.page++;
-      },false)       
+      }).then(res => {
+        console.log(res)
+        // wx.hideLoading();
+        wx.hideNavigationBarLoading()
+        this.setData({
+          list: res
+        })
+      })  
   },
 
 

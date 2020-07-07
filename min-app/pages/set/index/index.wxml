@@ -10,13 +10,13 @@
                 </view> 
               </view>
               <view class="user_info_bottom" wx:if="{{ userInfo.nickName }}">
-                <view>
+<!--                 <view>
                    <view>我的学校</view>
                    <navigator hover-class="none" url="/pages/date/city/index" class='user_info_college' >{{userInfo.college || '点击选择学校'}}
                      </navigator>
-                 </view>
+                 </view> -->
                 <view>
-                   <view>我的帖子</view>
+                   <view>我的发布</view>
                    <navigator hover-class="none" url="/pages/mypush/index?openid={{userInfo.openid}}" class='user_info_college' >{{myContentlist}}<!-- <image src="../../../img/down.png"  class='icon-arrow-down-s ml8'></image>  -->
                      </navigator>
                  </view>
@@ -46,7 +46,7 @@
                       
           </view>
         </view>  -->   
-        <navigator class='user_info_message flex flex_between ' url="/pages/set/qimo/index?college={{ userInfo.college }}" open-type="navigate" app-id="wx8abaf00ee8c3202e" extra-data="{{ extraData }}">
+<!--         <navigator class='user_info_message flex flex_between ' url="/pages/set/qimo/index?college={{ userInfo.college }}" open-type="navigate" app-id="wx8abaf00ee8c3202e" extra-data="{{ extraData }}">
           <view class=" flex flex_center">
             <view class="iconfont icon-zhongwenyuyan fixed_icon user_info_message_icon"></view>     
             查询期末考试成绩
@@ -54,7 +54,7 @@
           <view class="flex flex_center" >
             <image src="../../../img/v2/enter.png" class='user_info_message_icon'  mode="aspectFit"></image>        
           </view>
-        </navigator> 
+        </navigator>  -->
 <!--         <navigator class='user_info_message flex flex_between ' url="/pages/set/yan/index" open-type="navigate" app-id="wx8abaf00ee8c3202e" extra-data="{{ extraData }}">
           <view class=" flex flex_center">
             <view class="iconfont icon-zhongwenyuyan fixed_icon user_info_message_icon"></view>     
@@ -73,7 +73,7 @@
             <image src="../../../img/v2/enter.png" class='user_info_message_icon'  mode="aspectFit"></image>        
           </view>
         </navigator>  -->  
-        <navigator class='user_info_message flex flex_between ' url="/pages/set/teacher/index" open-type="navigate" app-id="wx8abaf00ee8c3202e" extra-data="{{ extraData }}">
+<!--         <navigator class='user_info_message flex flex_between ' url="/pages/set/teacher/index" open-type="navigate" app-id="wx8abaf00ee8c3202e" extra-data="{{ extraData }}">
           <view class=" flex flex_center">
             <view class="iconfont icon-xuejiyidongguanli fixed_icon user_info_message_icon"></view>     
             查询教师资格证成绩
@@ -81,8 +81,8 @@
           <view class="flex flex_center" >
             <image src="../../../img/v2/enter.png" class='user_info_message_icon'  mode="aspectFit"></image>        
           </view>
-        </navigator> 
-        <navigator class='user_info_message flex flex_between ' url="/pages/set/language/index" open-type="navigate" app-id="wx8abaf00ee8c3202e" extra-data="{{ extraData }}">
+        </navigator>  -->
+<!--         <navigator class='user_info_message flex flex_between ' url="/pages/set/language/index" open-type="navigate" app-id="wx8abaf00ee8c3202e" extra-data="{{ extraData }}">
           <view class=" flex flex_center">
             <view class="iconfont icon-zhongwenyuyan fixed_icon user_info_message_icon"></view> 
             查询普通话等级成绩
@@ -90,11 +90,11 @@
           <view class="flex flex_center" >
             <image src="../../../img/v2/enter.png" class='user_info_message_icon'  mode="aspectFit"></image>        
           </view>
-        </navigator> 
+        </navigator>  -->
         <button class='user_info_message flex flex_between' open-type="contact" >
           <view class=" flex flex_center">
             <image src="../../../img/v2/kefu.png" mode="aspectFit" class='user_info_message_icon' bindtap="clickMessage" ></image>
-             在线客服
+             联系我们
           </view>
           <view class="flex flex_center" >
             <image src="../../../img/v2/enter.png" class='user_info_message_icon'  mode="aspectFit"></image>    
