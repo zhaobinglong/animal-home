@@ -170,7 +170,7 @@ class api {
 
 	// 查询的条件存在时就查询，不存在就跳过该条件使用其他条件查询
 	public function getList() {
-        $sql = 'SELECT * from ershou';
+        $sql = 'SELECT * from ershou where status != "0" ';
 		// $sql = 'SELECT e.id,e.openid,e.title,e.cont,e.imgs,e.name,e.age,e.status,e.address,e.phone,e.level,e.classify,e.category,e.message,e.views,e.liked,e.updatetime,u.nickName,u.avatarUrl,u.status as user_status from ershou as e  left join user as u on e.openid = u.openid where (e.college="' . $this->mypost->college . '"  and e.status="1" and (e.classify="' . $this->mypost->classify . '" or "' . $this->mypost->classify . '" = "") and (e.category="' . $this->mypost->category . '" or "' . $this->mypost->category . '" = "") and (e.openid="' . $this->mypost->openid . '" or "' . $this->mypost->openid . '" = "") and (e.belong="' . $this->mypost->belong . '" or "' . $this->mypost->belong . '" ="") and e.openid!="") or e.classify="通知公告" order by updatetime desc limit ' . $this->mypost->page * 20 . ',20 ';
 		$res = $this->db->dql($sql);
 		$data = array();
