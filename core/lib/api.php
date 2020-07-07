@@ -301,10 +301,6 @@ class api {
 	       }
 	   }
 
-		if (!isset($mypost->belong)) {
-			$mypost->belong = 'unibbs';
-		}
-
 		$data = array();
 		$id = '';
 		if (isset($mypost->id)) {
@@ -312,7 +308,7 @@ class api {
 			$sql = "UPDATE ershou set title='" . $mypost->title . "',cont='" . $mypost->cont . "',imgs='" . serialize($mypost->imgs) . "',imgs_detail='" . serialize($mypost->imgs_detail) . "',symbol='" . $mypost->symbol . "',updatetime='" . time() . "',college='" . $mypost->college . "',address='" . $mypost->address . "',openid='" . $mypost->openid . "',wechat='" . $mypost->wechat . "',price='" . $mypost->price . "',old_price='" . $mypost->old_price . "',is_new='" . $mypost->is_new . "',level='" . $mypost->level . "',classify='" . $mypost->classify . "',category='" . $mypost->category . "',status='" . $mypost->status . "', updatetime='" . time() . "' where id='" . $mypost->id . "'";
 			$data['msg'] = '更新成功';
 		} else {
-			$sql = "INSERT into ershou(openid,title,cont,imgs,imgs_detail,symbol,college,address,wechat,price,classify,category,createtime,updatetime, belong) value('" . $mypost->openid . "','" . $mypost->title . "','" . $mypost->cont . "','" . serialize($mypost->imgs) . "','" . serialize($mypost->imgs_detail) . "','" . $mypost->symbol . "','" . $mypost->college . "','" . $mypost->address . "','" . $mypost->wechat . "','" . $mypost->price . "','" . $mypost->classify . "','" . $mypost->category . "','" . time() . "','" . time() . "', '" . $mypost->belong . "')";
+			$sql = "INSERT into ershou(openid,name,cont,imgs,age,address,category,createtime,updatetime) value('" . $mypost->openid . "','" . $mypost->name . "','" . $mypost->cont . "','" . serialize($mypost->imgs) . "','" . $mypost->age . "','" . $mypost->address . "','" . $mypost->category . "','" . time() . "','" . time() . "')";
 			$data['msg'] = '发布成功';
 		}
 		$res = $this->db->dql($sql);
@@ -329,10 +325,6 @@ class api {
 			$data['code'] = 201;
 			$data['msg'] = 'sql异常';
 		}
-
-		// // update college set num = (select count(*) from ershou where college='北京大学') where uName="北京大学"
-		// $sql = 'update college set num = (select count(*) from ershou where college="' . $mypost->college . '") where uName="' . $mypost->college . '" ';
-		// $db->dql($sql);
 		$this->sendData($data, $sql);
 	}
 
