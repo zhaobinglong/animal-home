@@ -291,7 +291,7 @@ class api {
 		$id = '';
 		if (isset($mypost->id)) {
 			$data['id'] = $mypost->id;
-			$sql = "UPDATE ershou set title='" . $mypost->title . "',cont='" . $mypost->cont . "',imgs='" . serialize($mypost->imgs) . "',imgs_detail='" . serialize($mypost->imgs_detail) . "',symbol='" . $mypost->symbol . "',updatetime='" . time() . "',college='" . $mypost->college . "',address='" . $mypost->address . "',openid='" . $mypost->openid . "',wechat='" . $mypost->wechat . "',price='" . $mypost->price . "',old_price='" . $mypost->old_price . "',is_new='" . $mypost->is_new . "',level='" . $mypost->level . "',classify='" . $mypost->classify . "',category='" . $mypost->category . "',status='" . $mypost->status . "', updatetime='" . time() . "' where id='" . $mypost->id . "'";
+			$sql = "UPDATE ershou set name='" . $mypost->name . "',cont='" . $mypost->cont . "',imgs='" . serialize($mypost->imgs) . "',updatetime='" . time() . "',age='" . $mypost->age . "',address='" . $mypost->address . "',openid='" . $mypost->openid . "',category='" . $mypost->category . "',status='" . $mypost->status . "', updatetime='" . time() . "' where id='" . $mypost->id . "'";
 			$data['msg'] = '更新成功';
 		} else {
 			$sql = "INSERT into ershou(openid,name,cont,imgs,age,address,category,createtime,updatetime) value('" . $mypost->openid . "','" . $mypost->name . "','" . $mypost->cont . "','" . serialize($mypost->imgs) . "','" . $mypost->age . "','" . $mypost->address . "','" . $mypost->category . "','" . time() . "','" . time() . "')";
