@@ -14,7 +14,7 @@ class DB {
 	// charset=utf8
 
 	//  本地测试通过
-	public $dbname = 'uniapi';
+	public $dbname = 'animal';
 	public $host = '154.8.226.223';
 	public $user = 'root'; //用户名(api key)
 	public $pwd = '3ZbvwYRUFc'; //密码(secret key)
