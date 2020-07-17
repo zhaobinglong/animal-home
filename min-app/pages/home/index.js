@@ -3,7 +3,8 @@ const ershouModel = require("../../utils/ershouModel.js");
 const userModel = require("../../utils/userModel.js");
 const systemModel = require("../../utils/systemModel.js");
 const util = require("../../utils/util.js");
-const config = require("../../config/index.js");
+// const config = require("../../config/index.js");
+import config from '../../config/index.js'
 
 //获取应用实例
 var app = getApp();
@@ -12,7 +13,6 @@ Page({
     e:{}, //url中的参数
     all:[],//列表原始数据
     list:[],
-    types:[],
     imgbase:app.imgbase,
     loading:true,//加载中
     city:'',
@@ -27,7 +27,7 @@ Page({
     no_page:false, //最后一页数据获取后，为true
     is_first_loading:true,
     unread:0,
-    types:config.type,
+    types: config.types,
     current_type:'全部',
     current_level: 'first', // 当前查询的分类级别
     openid:'', //用户发openid
@@ -243,13 +243,6 @@ Page({
       })
      this.updateList();  
     } else {
-      // 点击某个分类，只显示当前这个分类下的二级菜单
-      let types = [] 
-      allType.map((item) => {
-         if (item.name === classify) {
-          types.push(item)
-         }
-      })
       this.setData({
         current_category: types,
         show_subcate: true

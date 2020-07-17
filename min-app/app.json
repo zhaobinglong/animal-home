@@ -36,7 +36,7 @@
         "pagePath": "pages/home/index",
         "iconPath": "img/tab/tabBar_place.png",
         "selectedIconPath": "img/tab/tabBar_place.png",
-        "text": "动物广场"
+        "text": "首页"
       },
       {
         "pagePath": "pages/set/index/index",

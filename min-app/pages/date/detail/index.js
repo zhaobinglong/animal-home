@@ -449,10 +449,7 @@ Page({
 
   // 返回主页
   backHome(){
-    let url = '../index/index?college=' + this.data.form.college;
-    wx.reLaunch({
-      url: url
-    })
+    app.backHome()
   },
   
 

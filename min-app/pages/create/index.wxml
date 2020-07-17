@@ -13,7 +13,7 @@
                <!-- <i class="iconfont icon-chongwu" ></i> -->
             </span>
         </view>
-        <view class='page_create_item ' style='padding-bottom:-30rpx'>
+        <view class='page_create_item' style="background-color: #EFEFEF">
           <textarea  maxlength="-1"  placeholder="介绍一下这只小宝贝吧" data-value="cont" bindinput="bindInput" value="{{form.cont}}"  class='page_create_textarea ' placeholder-class="ph-color-tip" />
         </view>
       </div>
@@ -39,12 +39,12 @@
              </view>
              <image src="../../common/img/icon/right.png" class='userInfo_item_icon_right'></image>
            </view>
-          <picker mode="selector" range="{{category}}" bindchange="chooseCategory" >
+          <picker mode="selector" range="{{category}}" range-key="{{ 'name' }}" bindchange="chooseCategory" >
             <view class='page_create_item flex page_create_item_border' >
                <view class='flex' style="width:100%">
                   
                 <i class="iconfont icon-biaoqian" ></i>
-                  <view class='flex' style="width:100%">{{form.category}}</view>
+                  <view class='flex' style="width:100%">{{form.category.name}}</view>
                </view>
                <image src="../../common/img/icon/right.png" class='userInfo_item_icon_right'></image>
              </view> 

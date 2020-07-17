@@ -100,6 +100,15 @@
             <image src="../../../img/v2/enter.png" class='user_info_message_icon'  mode="aspectFit"></image>    
           </view>
         </button> 
+        <navigator class='user_info_message flex flex_between' url="/pages/out/index?url=https://mp.weixin.qq.com/s/lX5XfDTwVHz0fJbp4UVGyA">
+          <view class=" flex flex_center">
+            <image src="../../../img/new.png" mode="aspectFit" class='user_info_message_icon' bindtap="clickMessage" ></image>
+             加入我们
+          </view>
+          <view class="flex flex_center" >
+            <image src="../../../img/v2/enter.png" class='user_info_message_icon'  mode="aspectFit"></image>    
+          </view>
+        </navigator> 
 <!--         <navigator class='user_info_message flex flex_between ' url="/pages/feedback/index" open-type="navigate" app-id="wx8abaf00ee8c3202e" extra-data="{{ extraData }}">
           <view class=" flex flex_center">
             <image src="../../../img/v2/comment.png" mode="aspectFit" class='user_info_message_icon' bindtap="clickMessage" ></image>

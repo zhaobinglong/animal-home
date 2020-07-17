@@ -66,7 +66,7 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": 8,
+			"current": -1,
 			"list": [
 				{
 					"id": 0,
@@ -81,13 +81,6 @@
 					"pathName": "pages/date/success/index",
 					"query": "from=create&id=958",
 					"scene": 1007
-				},
-				{
-					"id": 2,
-					"name": "进入编辑模式",
-					"pathName": "pages/date/create/index",
-					"query": "type=add&category=%E5%91%A8%E8%BE%B9%E5%A5%BD%E8%AF%84",
-					"scene": 1001
 				},
 				{
 					"id": 3,

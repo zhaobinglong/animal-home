@@ -3,7 +3,6 @@
    background-color: #FFF;
    font-size:28rpx;
    height:100vh;
-   padding-top: 60rpx
 }
 
 .page_create_item{
@@ -79,4 +78,7 @@
   width: 140rpx;
   height: 60rpx;
   color: #fff;
+}
+.iconfont {
+  padding-right: 10px;
 }

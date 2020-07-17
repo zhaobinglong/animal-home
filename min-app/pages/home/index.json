@@ -1,6 +1,6 @@
 
 {
-  "navigationBarTitleText": "首页",
+  "navigationBarTitleText": "滁州动保",
   "usingComponents": {
     "bar": "../../../components/bar/index",
     "waterfall": "../../../components/waterfall/index",
@@ -8,6 +8,5 @@
     "fixButton": "../../../components/fixButton/index",
     "loading": "../../../components/loading/index",
     "notice": "../../../components/notice/index"
-  },
-  "navigationStyle": "custom"
+  }
 }

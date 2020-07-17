@@ -36,7 +36,7 @@ let cos = new COS({
 var app = getApp();
 Page({
   data: {
-    category: ['猫','狗'],
+    category: config.types,
     form: {
       openid:'',
       title: '',
@@ -53,7 +53,7 @@ Page({
       tempFilePaths:app.tempFilePaths,
       wechat:'',
       type_index:0, //宝贝默认分类索引
-      category:'分类', //二级分类
+      category:'标签分类', //二级分类
       classify:'', // 一级分类
       symbol:'¥',
       status: 1, // 0删除，1正常，2卖出, 3下架
