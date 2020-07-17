@@ -94,9 +94,6 @@ page {
 	padding-top: 92rpx;
 	box-sizing:border-box
 }
-.page_list_type_item:first-child {
-    margin-left: 24rpx;
-}
 .page_list_subcate {
 }
 .page_list_type_subcate {
@@ -124,14 +121,12 @@ page {
   border-radius: 8rpx;
 }
 .page_list_type_item{
-	line-height:52rpx;
 	display:inline-block;
 	font-size:28rpx;
-	margin-right:40rpx;
+	line-height: 80rpx;
+	padding: 0 10rpx;
 }
-.page_list_type_item_last {
-	margin-right:10rpx;
-}
+
 .page_list_top_yesterday{
   background-color: rgba(0, 0, 0, 0.5);
   position:absolute;
@@ -211,10 +206,18 @@ page {
 	font-size:28rpx;
 	padding:0 20rpx;
 }
+.page_list_type_scroll {
+	display: flex;
+	justify-content: space-around;
+	position: fixed; 
+	top:0; 
+	height: 72rpx; 
+	width: 100%;
+}
 .list_type_item_select{
    color:#2c2c2c;
    font-weight: 600;
-   border-bottom: 4rpx solid  #189AF8;
+   border-bottom: 10rpx solid  #189AF8;
    border-radius: 4rpx;
    box-sizing:border-box;
 }

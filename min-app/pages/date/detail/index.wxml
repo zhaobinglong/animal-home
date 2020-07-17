@@ -8,13 +8,14 @@
         </view>
     </view>
 </view>
+
 <view wx:else>
-      
+  
       <!-- 信息主体 -->
       <goods form = "{{form}}"></goods>
       
       <!--  详情页菜单 -->
-      <div class='detail_box '>
+      <view class='page_detail'>
           <view class='flex flex_between detail_cont_item'>
             <view>分享至</view>
             <view class='flex'>
@@ -25,24 +26,10 @@
                 <button open-type="share" plain='true' class='button_reset fs28 flex '><image src="../../../img/wechat_detail.png" class='icon_share'></image>微信群</button>
             </view>
           </view>
-          <view class='detail_cont_item flex' bindtap='backHome'>
-            <view>返回主页</view>
-          </view>
-<!--           <view class='detail_cont_item flex' bindtap='toReport'>
-            举报
-          </view> -->
-          <!-- ！！！警告，只有白名单用户才会出现删除按钮！！！ -->
-<!--           <view class='detail_cont_item flex' bindtap='adminDel' wx:if="{{ show_admin_delete_menu }}">
-            删除帖子
-          </view> -->
           <view class='detail_cont_item flex' bindtap="editClick" wx:if="form.creater">
             编辑
           </view>
-<!--           <view wx:if="{{ comment.length == 0 }}">
-            <ad unit-id="adunit-65e364f1e3f455a5"></ad>
-          </view> -->
-          
-      </div>
+      </view>
       <view class=' date_edit_cont '>
         <view class='replay_message_item' wx:key="index"   wx:for="{{comment}}" wx:for-item="item" wx:if="{{item.cont}}" bindtap="commentClick" data-index="{{index}}" data-item="{{ item }}">
            <image src="{{item.avatarUrl || '../../../img/logo.png'}}" class='replay_message_item_img'></image>  
@@ -58,25 +45,17 @@
         </view>
       </view>
       <view style='height:200rpx'></view>
-          <view  class="detail_button_box {{is_x?'is_x':''}}" style="padding: 14rpx 40rpx;" > 
-              <input name="input" class="detail_message_input" placeholder="{{placeholder}}"  bindinput="bindInput"  value="{{form.message}}"  />
-              <button class='button_reset button_comment' plain open-type="getUserInfo" bindgetuserinfo="getUserInfoByButton">
-                <i class="iconfont fixed_icon icon-emizhifeiji"></i>
-              </button> 
-<!-- 
-                <button open-type="share" data-item="{{ item }}" plain='true' class='button_reset fs28 flex color-tip'>
-                  <image src="/img/share.png"  class='icon margin-r5'></image> 分享
-                </button> -->
-          </view>
+      <view  class="detail_button_box {{is_x?'is_x':''}}" style="padding: 14rpx 40rpx;" > 
+          <input name="input" class="detail_message_input" placeholder="{{placeholder}}"  bindinput="bindInput"  value="{{form.message}}"  />
+          <button class='button_reset button_comment' plain open-type="getUserInfo" bindgetuserinfo="getUserInfoByButton">
+            <i class="iconfont fixed_icon icon-emizhifeiji"></i>
+          </button> 
+      </view>
 
 </view>
 
-<view class='share_img_box ' wx:if="{{show_qrcode}}">
-  <canvas canvas-id="share_img"  class='share_img' style="width:320px;height:500px"/>
-  <view class='tc mt40'>
-       <button class='button button_down' bindtap="downQrcode">保存图片,分享到朋友圈</button>
-  </view>
-</view>
+
+
 
 
 

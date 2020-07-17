@@ -1,29 +1,60 @@
 
 <view class='page_create'>
 
-      <div class='border-b'>
-        <view class='page_create_item '  >
-            <span class='date_edit_cont_img_box ' wx:for="{{form.tempFilePaths}}" wx:for-index="idx" wx:key="{{idx}}">
-                 <image src="{{item}}" class='date_edit_cont_img ' bindtap="addImg" mode="aspectFill" bindtap="preViewImg" data-index="{{idx}}"></image >
-                 <image src="../../img/img_del.png" class='icon_img_del' bindtap="delImg" data-index="{{idx}}" ></image>
-            </span>
-            <span class='date_edit_cont_img_box re sq_more_img'>
-               <image src="../../img/more_img.png" class='sq_more_img' bindtap="addImg"  ></image>
-              
-               <!-- <i class="iconfont icon-chongwu" ></i> -->
-            </span>
+      <!-- 选择上传的资源类型  -->
+      <view class="page_create_select_type" wx:if="{{ form.tempFilePaths.length == 0 && form.videos.length == 0 }}">
+        <view class="page_create_select_type_item">
+          <image src="../../img/photo.png" class='sq_more_img' bindtap="addImg"  ></image>
+          <view>添加照片</view>
         </view>
-        <view class='page_create_item' style="background-color: #EFEFEF">
-          <textarea  maxlength="-1"  placeholder="介绍一下这只小宝贝吧" data-value="cont" bindinput="bindInput" value="{{form.cont}}"  class='page_create_textarea ' placeholder-class="ph-color-tip" />
+        <view class="page_create_select_type_item">
+          <image src="../../img/video.png" class='sq_more_img' bindtap="addVideo"  ></image>
+          <view>添加视频</view>
         </view>
-      </div>
+      </view>
+
+      <!-- 图片上传区域  -->
+      <view class='page_create_item '  wx:if="{{ form.tempFilePaths.length }}">
+          <span class='date_edit_cont_img_box ' wx:for="{{form.tempFilePaths}}" wx:for-index="idx" wx:key="idx">
+               <image src="{{item}}" class='date_edit_cont_img ' bindtap="addImg" mode="aspectFill" bindtap="preViewImg" data-index="{{idx}}"></image >
+               <image src="../../img/del.png" class='icon_img_del' bindtap="delImg" data-index="{{idx}}" ></image>
+          </span>
+          <span class='date_edit_cont_img_box re sq_more_img'>
+             <image src="../../img/more_img.png" class='sq_more_img' bindtap="addImg"  ></image>
+          </span>
+      </view>
+
+      <!-- 视频上传区域  -->
+      <view class="page_create_item_video" wx:if="{{ form.videos.length }}">
+         <video 
+            id="myVideo" 
+            src="{{ form.videos[0] }}" 
+            binderror="videoErrorCallback" 
+            show-center-play-btn='{{false}}' 
+            show-play-btn="{{true}}" 
+            controls
+            picture-in-picture-mode="{{['push', 'pop']}}"
+            bindenterpictureinpicture='bindVideoEnterPictureInPicture'
+            bindleavepictureinpicture='bindVideoLeavePictureInPicture'
+            bindlongpress="longPressVideo"
+          ></video>
+          <view class="page_create_item_remark">
+            长按视频可以删除
+          </view>
+         
+      </view>
+
+      <!-- 文字内容编辑区域 -->
+      <view class='page_create_item' style="background-color: #EFEFEF">
+        <textarea  maxlength="-1"  placeholder="介绍一下这只小宝贝吧" data-value="cont" bindinput="bindInput" value="{{form.cont}}"  class='page_create_textarea ' placeholder-class="ph-color-tip" />
+      </view>
 
 
       <div class='mb88'>
            <view class='page_create_item flex between page_create_item_border' >
               <view class="flex flex_grow" >
                <i class="iconfont icon-yijianfankui" ></i>
-               <input  class="create_params" placeholder="小家伙的名字" bindinput="bindInput" data-value="name"  value="{{form.name}}" class='flex_grow'/>
+               <input  class="create_params" placeholder="名字" bindinput="bindInput" data-value="name"  value="{{form.name}}" class='flex_grow'/>
               </view>
            </view>
            <view class='page_create_item flex between page_create_item_border' >

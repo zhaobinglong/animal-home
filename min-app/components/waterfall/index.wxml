@@ -3,7 +3,7 @@
 
     <view class='page_list page_list_left' wx:if="{{ list.length }}">
 
-          <view wx:for="{{list}}" wx:key class='page_list_item' wx:key="{{item.id}}" wx:if="{{index%2==0}}">
+          <view wx:for="{{list}}" wx:key="id" class='page_list_item'  wx:if="{{index%2==0}}">
              
                  <navigator class=''   url="/pages/date/detail/index?id={{item.id}}" hover-class="none">
 
@@ -28,7 +28,7 @@
 
     <view class='page_list page_list_right' wx:if="{{ list.length }}">
 
-          <view wx:for="{{list}}" wx:key  class='page_list_item' wx:key="{{item.id}}" wx:if="{{index%2==1}}">
+          <view wx:for="{{list}}" wx:key="id"  class='page_list_item'  wx:if="{{index%2==1}}">
              
                  <navigator class=''   url="/pages/date/detail/index?id={{item.id}}" hover-class="none">
 

@@ -1,4 +1,4 @@
-.detail_box{
+.page_detail{
   padding:0 36rpx;
   font-size:32rpx;
   color:#4a4a4a;

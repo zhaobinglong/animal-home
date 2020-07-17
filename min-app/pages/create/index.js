@@ -42,33 +42,26 @@ Page({
       title: '',
       cont: "",
       imgs: [],
+      videos:['http://wxsnsdy.tc.qq.com/105/20210/snsdyvideodownload?filekey=30280201010421301f0201690402534804102ca905ce620b1241b726bc41dcff44e00204012882540400&bizid=1023&hy=SH&fileparam=302c020101042530230204136ffd93020457e3c4ff02024ef202031e8d7f02030f42400204045a320a0201000400'],
       imgs_detail: [], 
       is_new:false,
       age:'',
       timeStamp:0, //记录单击时间
       name:'',
-      address:'小家伙来自哪里？',
+      address:'来自哪里？',
       is_my:false,
       is_edit:false,
       tempFilePaths:app.tempFilePaths,
       wechat:'',
       type_index:0, //宝贝默认分类索引
-      category:'标签分类', //二级分类
+      category:{name: '滁州动保'}, //二级分类
       classify:'', // 一级分类
-      symbol:'¥',
       status: 1, // 0删除，1正常，2卖出, 3下架
       cos: null
     },
 
     chooseImgCount: 9, //可以选择的图片数量
     imgbase:app.imgbase,
-    level: [
-       "全新" ,
-       "九成新", 
-       "八成新", 
-       "七成新", 
-       "六成新以下", 
-    ],
     symbol:config.momey, //货币符号
     type:config.type,
     imgs:[], //保存上传的图片名字
@@ -105,9 +98,9 @@ Page({
            for (var i = 0; i < r.imgs.length; i++) {
               r.tempFilePaths.push(r.imgs[i]);
            }
-          
-           self.setData({
-               form:r
+           r.category = {name: r.category}
+           this.setData({
+               form: r
            })
            
            //下载目前的第一张图片
@@ -238,6 +231,7 @@ Page({
   // 点击上传图片
   // 图片只能上传九张，之后上传按钮消失
   // 图片多选上传
+  // 也可以上传视频，只能上传一个视频，并且不能有图片
   addImg() {
     var self = this;
     wx.chooseImage({
@@ -267,17 +261,14 @@ Page({
     // 给图片命令，名字：当前时间戳+五位数字的随机整数，开始上传
     // 图片名字前增加的参数，会被生成路径
     let self = this
-    let key = 'img/' + new Date().getTime() + Math.floor(Math.random()*10000) + filename.substring(filename.lastIndexOf('.'))
+    let key = 'chuzhoudongbao/' + new Date().getTime() + Math.floor(Math.random()*10000) + filename.substring(filename.lastIndexOf('.'))
     cos.postObject({
           Bucket: Bucket,
           Region: Region,
           Key: key,
           FilePath: filePath,
-          onProgress: function (info) {
-            // console.log(JSON.stringify(info));
-          }
+          onProgress: function (info) {}
       }, function (err, data) {
-          console.log(data);
           let form = self.data.form;
           form.imgs.push('https://' + data.Location);
       })
@@ -303,6 +294,49 @@ Page({
       form
     });
 
+  },
+  
+  // 添加视频
+  addVideo() {
+    wx.chooseVideo({
+      sourceType: ['album','camera'],
+      maxDuration: 60,
+      camera: 'back',
+      success: (res) => {
+        console.log(res.tempFilePath)
+        this.uploadVideo(res.tempFilePath)
+      }
+    })
+  },
+  longPressVideo () {
+    console.log('okk')
+    let form = Object.assign({}, this.data.form, {videos: []})
+    this.setData({
+      form: form
+    })
+    console.log(this.data.form.videos)
+     console.log(this.data.form)
+  },
+
+  uploadVideo (filePath) {
+    // 给图片命令，名字：当前时间戳+五位数字的随机整数，开始上传
+    // 图片名字前增加的参数，会被生成路径
+    let self = this
+    let key = 'chuzhoudongbao/' + new Date().getTime() + Math.floor(Math.random()*10000) + filePath.substring(filePath.lastIndexOf('.'))
+    cos.postObject({
+          Bucket: Bucket,
+          Region: Region,
+          Key: key,
+          FilePath: filePath,
+          onProgress: function (info) {}
+      }, function (err, data) {
+          console.log(data)
+          let videos = ['https://' + data.Location];
+          let form = Object.assign({}, self.data.form, {videos: videos})
+          self.setData({
+            form: form
+          })
+      })
   },
 
   sellDown(){
@@ -354,13 +388,10 @@ Page({
       this.data.form.address = ''
     }  
 
-    if (!this.data.form.openid) {
-      this.data.form.openid = wx.getStorageSync('openid')
-    }
-
     // wx.uma.trackEvent('click_push', this.data.form);
     wx.showLoading({title: '发布中…'});
-    app.api.push(this.data.form).then((res) =>{
+    let data = Object.assign({}, this.data.form, {category: this.data.form.category.name})
+    app.api.push(data).then((res) =>{
       wx.hideLoading();
       wx.redirectTo({
          url: '../success/index?from=create&id='+res.id

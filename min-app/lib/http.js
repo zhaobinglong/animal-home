@@ -17,10 +17,6 @@ class HTTP {
   }
   // 定义请求方法 需要的参数 data 不传 默认为空对象 请求方式默认get
   _request(url, resolve, reject,data = {}, method = "GET") {
-    // 使用微信提供api
-    wx.showLoading({
-      title: '加载中',
-    })
     wx.request({
       // 基础路径 加上 接口的路径
       url: BASE_URL + url,
@@ -34,7 +30,6 @@ class HTTP {
       method: method,
       // 成功回调
       success: res => {
-        console.log(res)
         // 微信提供的 请求响应 200 为成功
         var code = res.statusCode.toString();
         // 取首个字符 如果是2xx 成功

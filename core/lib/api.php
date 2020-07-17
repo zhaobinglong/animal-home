@@ -291,10 +291,10 @@ class api {
 		$id = '';
 		if (isset($mypost->id)) {
 			$data['id'] = $mypost->id;
-			$sql = "UPDATE ershou set name='" . $mypost->name . "',cont='" . $mypost->cont . "',imgs='" . serialize($mypost->imgs) . "',updatetime='" . time() . "',age='" . $mypost->age . "',address='" . $mypost->address . "',openid='" . $mypost->openid . "',category='" . $mypost->category . "',status='" . $mypost->status . "', updatetime='" . time() . "' where id='" . $mypost->id . "'";
+			$sql = "UPDATE ershou set name='" . $mypost->name . "',cont='" . $mypost->cont . "',imgs='" . serialize($mypost->imgs) . "',videos='".serialize($mypost->videos)."',updatetime='" . time() . "',age='" . $mypost->age . "',address='" . $mypost->address . "',openid='" . $mypost->openid . "',category='" . $mypost->category . "',status='" . $mypost->status . "', updatetime='" . time() . "' where id='" . $mypost->id . "'";
 			$data['msg'] = '更新成功';
 		} else {
-			$sql = "INSERT into ershou(openid,name,cont,imgs,age,address,category,createtime,updatetime) value('" . $mypost->openid . "','" . $mypost->name . "','" . $mypost->cont . "','" . serialize($mypost->imgs) . "','" . $mypost->age . "','" . $mypost->address . "','" . $mypost->category . "','" . time() . "','" . time() . "')";
+			$sql = "INSERT into ershou(openid,name,cont,imgs,videos,age,address,category,createtime,updatetime) value('" . $mypost->openid . "','" . $mypost->name . "','" . $mypost->cont . "','" . serialize($mypost->imgs) . "','" . serialize($mypost->videos) . "','" . $mypost->age . "','" . $mypost->address . "','" . $mypost->category . "','" . time() . "','" . time() . "')";
 			$data['msg'] = '发布成功';
 		}
 		$res = $this->db->dql($sql);

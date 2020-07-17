@@ -1,7 +1,6 @@
 
     <view class='' style="background:#F5F5F5">
-        <view class="f-mask z1" wx:if="{{show_subcate}}" bindtap="clickTypeMore"></view>
-        <view class="re z10">
+          <view class="f-mask z1" wx:if="{{show_subcate}}" bindtap="clickTypeMore"></view>
           <!-- 搜索框 -->
 <!--           <view class="page_search border-b">
              <view class='userInfo_item border_none flex between'> 
@@ -11,20 +10,15 @@
                 </view>
              </view>
           </view>  -->     
-        </view>
           <view class="page_list_type" >
-             <scroll-view  scroll-x="true" style="position: absolute; top:0; height: 72rpx; " class="page_list_type_scroll">
+             <view  class="page_list_type_scroll">
                 <view  bindtap="clickClassify" data-classify="{{item.name}}" data-level="first" class="page_list_type_item {{item.name==classify?'list_type_item_select':''}} {{ index === types.length - 1 ? 'page_list_type_item_last' : '' }}" wx:for="{{types}}" wx:for-item="item" wx:key="index" >{{item.name}}</view>
-             </scroll-view>
+             </view>
           </view> 
-        <view >
-<!--         <block wx:if="{{ loading }}">
-          <loading></loading>
-        </block> -->
+
           <block >
             <waterfall list="{{list}}" load_over="{{load_over}}"></waterfall>
           </block> 
-        </view>
     </view>
  <fixButton ></fixButton> 
 

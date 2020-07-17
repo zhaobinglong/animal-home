@@ -4,12 +4,31 @@
    font-size:28rpx;
    height:100vh;
 }
-
+.page_create_select_type {
+  display: flex;
+  justify-content: space-around;
+}
+.page_create_select_type_item {
+  width: 200rpx;
+  height: 300rpx;
+  /*border: 1rpx solid #EFEFEF;*/
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
 .page_create_item{
    padding:12px;
    background-color:#FFF;
    line-height: 50rpx;
 }
+.page_create_item_video video{
+   width: 100%;
+} 
+.page_create_item_remark {
+   line-height: 40rpx;
+}
+
 .page_create_item_remark{
   font-size:22rpx;
   padding:10rpx 24rpx;

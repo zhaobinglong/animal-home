@@ -35,7 +35,7 @@ Page({
     yesterday: 0,
     show_subcate: false, // 显示多级分类
     is_goods: false, // 判断是不是商品，是商品，要显示瀑布流
-    classify: '全部', //当前一级分类
+    classify: '滁州动保', //当前一级分类
     category: '', //当前二级分类
     current_top_type: 'city',
     current_category: null, //当前应该显示的二级菜单信息
@@ -166,15 +166,8 @@ Page({
 
   // 首页下拉刷新
   // 下拉刷新的时候，本地的college肯定是已经存在的了
-  updateList(){
-     this.data.page = 0;
-     this.data.list = [];
-     this.setData({
-      no_page:false,
-      loading: true
-     })
-     let college = wx.getStorageSync('college')
-     this.getList(college);
+  updateList(updateList){
+     this.getList(updateList);
   },
 
 
@@ -216,62 +209,18 @@ Page({
   // 点击一级分类 弹出二级分类的显示，只显示本分类下的信息
   // 如果二级分类已经展开，这个时候只需要收起，其他不做
   clickClassify(e) {
-    if (this.data.show_subcate) {
-      this.setData({
-        show_subcate: false
-      })
-      return false
-    }
-
     let classify = e.currentTarget.dataset.classify;
-    let allType = wx.getStorageSync('classify')
-    let is_goods = false;
-    if (classify == '二手' || classify == '租房' || classify == '兼职') {
-      is_goods = true;
-    }
+
     this.setData({
       classify: classify,
-      category: '',
-      is_goods: is_goods
     }) 
     
-    // 只有等于全部，才刷新列表
-    if (classify === '全部') {
-      this.setData({
-        show_subcate: true,
-        current_category: allType
-      })
-     this.updateList();  
-    } else {
-      this.setData({
-        current_category: types,
-        show_subcate: true
-      })
-    }
-
-    this.updateList('')
+    this.updateList(classify)
   },
   
-  // 点击分类菜单右侧的箭头
-  clickTypeMore () {
-    const show_subcate = !this.data.show_subcate
-    let allType = wx.getStorageSync('classify')
-    this.setData({
-      current_category: allType,
-      show_subcate: show_subcate
-    })
-  },
 
-  // 获取二手列表
-  // 如果当前学校还没有发布，跳转加入我们页面
-  // 将第二页的数据，开始乱序排列：目的是因为一个人会发布多个，让数据看起来更接近理想情况
-  // 如果没有数据，就跳转合伙人页面
   getList(name){
   
-      if(this.data.no_page){
-         return false;
-      }
-
       const self = this;
       const page = this.data.page;
       this.data.is_loading = true;

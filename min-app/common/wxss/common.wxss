@@ -2,7 +2,7 @@
 /*
   weChat Little reset
 */
-div,p,view,navigator{
+view{
   display: block;position: relative;box-sizing: border-box;
   margin: 0;
   padding: 0;
@@ -11,8 +11,7 @@ div,p,view,navigator{
   font-weight: normal;
   vertical-align: baseline;
     font-family: PingFangSC;
-  }
-i,label{display: inline-block;}
+}
 
 .w30{width:30rpx;}
 .h172{height:172rpx!important;}

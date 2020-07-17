@@ -1,13 +1,12 @@
 <!-- 主体图片 -->
 <view class="detail_swiper">
-  <swiper indicator-dots  indicator-active-color="#7ed321" autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}" bindchange="swiperChange" style="height:{{Hei}}" wx:if="{{ form.imgs.length }}">
-    <block wx:key wx:for="{{form.imgs}}"  wx:for-item="imgname" wx:key="index" >
-      <swiper-item>
-        <image bindtap="clickImg" src="{{imgname}}" class='swiper_item'  bindload='imgLoad'  mode="widthFix" data-name="{{imgname}}"  />
-      </swiper-item>
-    </block>
+  <swiper indicator-dots  indicator-active-color="#7ed321" autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}" bindchange="swiperChange"  wx:if="{{ form.imgs.length }}">
+    <swiper-item wx:key wx:for="{{form.imgs}}"  wx:for-item="imgname" wx:key="index" >
+      <image bindtap="clickImg" src="{{imgname}}" class='swiper_item'  bindload='imgLoad'  mode="aspectFill" data-name="{{imgname}}"  />
+    </swiper-item>
   </swiper>
 </view>
+
 <!-- 主体内容区域 -->
 <view class='detail_cont' >
   <text >{{form.cont}}</text> 
