@@ -1,10 +1,26 @@
 <!-- 主体图片 -->
-<view class="detail_swiper">
+<view class="detail_swiper" wx:if="{{ form.imgs.length }}">
   <swiper indicator-dots  indicator-active-color="#7ed321" autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}" bindchange="swiperChange"  wx:if="{{ form.imgs.length }}">
     <swiper-item wx:key wx:for="{{form.imgs}}"  wx:for-item="imgname" wx:key="index" >
       <image bindtap="clickImg" src="{{imgname}}" class='swiper_item'  bindload='imgLoad'  mode="aspectFill" data-name="{{imgname}}"  />
     </swiper-item>
   </swiper>
+</view>
+
+<!-- 主体视频 -->
+<view class="detail_swiper" wx:if="{{ form.videos.length }}" >
+   <video 
+    id="myVideo" 
+    src="{{ form.videos[0] }}" 
+    binderror="videoErrorCallback" 
+    show-center-play-btn='{{false}}' 
+    show-play-btn="{{true}}" 
+    controls
+    picture-in-picture-mode="{{['push', 'pop']}}"
+    bindenterpictureinpicture='bindVideoEnterPictureInPicture'
+    bindleavepictureinpicture='bindVideoLeavePictureInPicture'
+    bindlongpress="longPressVideo"
+  ></video>
 </view>
 
 <!-- 主体内容区域 -->

@@ -15,6 +15,9 @@
 .detail_swiper {
   min-height: 100rpx;
 }
+.detail_swiper video {
+  width: 100%;
+}
 .detail_avatar{
   width:72rpx;
   height:72rpx;

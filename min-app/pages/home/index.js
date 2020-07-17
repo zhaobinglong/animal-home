@@ -209,27 +209,19 @@ Page({
   // 点击一级分类 弹出二级分类的显示，只显示本分类下的信息
   // 如果二级分类已经展开，这个时候只需要收起，其他不做
   clickClassify(e) {
-    let classify = e.currentTarget.dataset.classify;
-
     this.setData({
-      classify: classify,
+      classify: e.currentTarget.dataset.classify,
     }) 
-    
-    this.updateList(classify)
+    this.getList(e.currentTarget.dataset.classify)
   },
   
 
   getList(name){
-  
       const self = this;
       const page = this.data.page;
       this.data.is_loading = true;
-      let classify = self.data.classify === '全部' ? '':self.data.classify;
-      // 如果没有参数，就获取当前url中的大学名字
       app.api.getList({
-        college: '西安外国语大学',
-        classify: classify,
-        category: self.data.category,
+        category: name,
         page: page,
         openid: ''
       }).then(res => {

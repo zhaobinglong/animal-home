@@ -331,10 +331,10 @@
 					"scene": null
 				},
 				{
-					"id": -1,
+					"id": 38,
 					"name": "编辑",
 					"pathName": "pages/create/index",
-					"query": "",
+					"query": "id=3320&type=edit",
 					"scene": null
 				}
 			]

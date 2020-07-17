@@ -2,7 +2,7 @@
 .page_create{
    background-color: #FFF;
    font-size:28rpx;
-   height:100vh;
+   padding-bottom: 100rpx
 }
 .page_create_select_type {
   display: flex;
