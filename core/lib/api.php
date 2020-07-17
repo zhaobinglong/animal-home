@@ -200,9 +200,10 @@ class api {
 
 	// 获取帖子详情
 	public function getDetail() {
-		$sql = 'select e.id,e.openid,e.name,e.cont,e.age,e.imgs,e.address,e.category,e.status,u.nickName,u.avatarUrl from ershou e left join  user u on u.openid = e.openid where e.id="'. $this->mypost->id .'"';
+		$sql = 'select e.id,e.openid,e.name,e.cont,e.age,e.imgs,e.videos,e.address,e.category,e.status,u.nickName,u.avatarUrl from ershou e left join  user u on u.openid = e.openid where e.id="'. $this->mypost->id .'"';
 		$res = $this->db->dql($sql)->fetch_object();
 		$res->imgs = unserialize($res->imgs);
+		$res->videos = unserialize($res->videos);
 		$this->sendData($res);
 		// 请求完毕后，阅读数加1
 		$sql = 'update ershou set views=views+1 where id = "' . $this->mypost->id . '"';
