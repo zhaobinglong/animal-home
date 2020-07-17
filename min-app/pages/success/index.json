@@ -3,5 +3,6 @@
   "navigationBarTitleText": "",
   "usingComponents": {
     "bar": "../../../components/bar/index"
-  }
+  },
+  "navigationStyle": "custom"
 }

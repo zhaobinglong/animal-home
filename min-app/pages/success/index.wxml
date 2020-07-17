@@ -5,7 +5,7 @@
      <view class='page_success_top_box'>
         <image src="../../img/success/success.png" class='icon_success'></image>
      </view>
-     <view class='page_success_cont'>发布成功</view>
+     <view class='page_success_cont'>{{ form.status == '0'?'删除成功':'发布成功'}}</view>
 
 
 <!--      <view class='page_success_share_box'>
@@ -17,7 +17,7 @@
      <!-- <navigator class=''  open-type="navigate"  url="../share/index" hover-class="none"> -->
       <!-- <view class='fs24 page_success_bottom '>分享给好友,有助于更快卖出去哦！</view> -->
       <!-- </navigator> -->
-	  <view class=" mt100" >
+	  <view class="mt100" wx:if="{{ form.status != '0' }}">
         <button class='button_success_blue flex flex_center' open-type='share'>
             我要分享
         </button>  

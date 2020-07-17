@@ -1,5 +1,5 @@
 
-    <view class='' style="background:#F5F5F5">
+    <view class='' >
           <view class="f-mask z1" wx:if="{{show_subcate}}" bindtap="clickTypeMore"></view>
           <!-- 搜索框 -->
 <!--           <view class="page_search border-b">

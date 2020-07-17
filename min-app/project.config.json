@@ -77,9 +77,9 @@
 				},
 				{
 					"id": 1,
-					"name": "二手发布成功",
-					"pathName": "pages/date/success/index",
-					"query": "from=create&id=958",
+					"name": "pages/success/index",
+					"pathName": "pages/success/index",
+					"query": "from=create&id=3322",
 					"scene": 1007
 				},
 				{
