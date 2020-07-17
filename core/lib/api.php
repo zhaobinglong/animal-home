@@ -170,7 +170,7 @@ class api {
 
 	// 查询的条件存在时就查询，不存在就跳过该条件使用其他条件查询
 	public function getList() {
-		$sql = 'SELECT e.id,e.openid,e.cont,e.imgs,e.name,e.age,e.address,e.category,e.updatetime,u.nickName,u.avatarUrl,u.status as user_status from ershou as e  left join user as u on e.openid = u.openid where e.status="1" and (e.category="' . $this->mypost->category . '" or "' . $this->mypost->category . '" = "") and (e.openid="' . $this->mypost->openid . '" or "' . $this->mypost->openid . '" = "") order by updatetime desc limit ' . $this->mypost->page * 20 . ',20 ';
+		$sql = 'SELECT e.id,e.openid,e.cont,e.imgs,e.videos,e.name,e.age,e.address,e.category,e.updatetime,u.nickName,u.avatarUrl,u.status as user_status from ershou as e  left join user as u on e.openid = u.openid where e.status="1" and (e.category="' . $this->mypost->category . '" or "' . $this->mypost->category . '" = "") and (e.openid="' . $this->mypost->openid . '" or "' . $this->mypost->openid . '" = "") order by updatetime desc limit ' . $this->mypost->page * 20 . ',20 ';
 		$res = $this->db->dql($sql);
 		$data = array();
 

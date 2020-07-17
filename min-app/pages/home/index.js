@@ -36,7 +36,7 @@ Page({
     show_subcate: false, // 显示多级分类
     is_goods: false, // 判断是不是商品，是商品，要显示瀑布流
     classify: '滁州动保', //当前一级分类
-    category: '', //当前二级分类
+    category: '滁州动保', //当前二级分类
     current_top_type: 'city',
     current_category: null, //当前应该显示的二级菜单信息
     notice: null
@@ -67,8 +67,6 @@ Page({
   **/
   onLoad (e) {
      this.data.e = e
-     // 如果首页是重新加载，则将缓存移除
-     wx.removeStorageSync('indexList')
   },
 
   // 每次切出页面，刷新数据，因为其他页面可能有删除和添加操作
@@ -77,25 +75,10 @@ Page({
   // 每次onshow，刷新消息数量
   onShow: function() {
 
-    // 如果列表有缓存，直接使用缓存
-    let indexList = wx.getStorageSync('indexList')
-    if (indexList) {
-      this.setData({
-        list: indexList,
-        loading: false
-      })
-      return false
-    }
 
-      let college = wx.getStorageSync('college')
-     if(this.data.e.scene){
-       this.getCollgeById(e.scene)
-     // 用户通过小程序首页或者学校主页进入
-     }else{
-         // 如果路由中存在大学
-        this.getList(college);
+    this.getList(this.data.category);
 
-     }
+
     this.setData({
       loading: false
     })
