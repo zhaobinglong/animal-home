@@ -38,7 +38,7 @@ Page({
   data: {
     category: config.types,
     form: {
-      openid:'',
+      openid: wx.getStorageSync('openid'),
       title: '',
       cont: "",
       imgs: [],

@@ -10,7 +10,7 @@
 </view>
 
 <view wx:else>
-  
+
       <!-- 信息主体 -->
       <goods form = "{{form}}"></goods>
       
@@ -26,7 +26,7 @@
                 <button open-type="share" plain='true' class='button_reset fs28 flex '><image src="../../../img/wechat_detail.png" class='icon_share'></image>微信群</button>
             </view>
           </view>
-          <view class='detail_cont_item flex' bindtap="editClick" wx:if="form.creater">
+          <view class='detail_cont_item flex' bindtap="editClick" wx:if="{{form.is_creater}}">
             编辑
           </view>
       </view>

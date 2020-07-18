@@ -263,6 +263,7 @@ Page({
    // 通过用户点击发送按钮，绑定用户信息
    // 判断用户有没有头像和昵称
    getUserInfoByButton (e) {
+    console.log(e)
       let self = this;
       let userInfo = wx.getStorageSync('userInfo')
       if(e.detail.errMsg == 'getUserInfo:ok'){

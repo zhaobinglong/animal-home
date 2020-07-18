@@ -1,7 +1,7 @@
 <wxs module="index" src="./index.wxs"></wxs>
         <view class='user_info' >
               <view class="user_info_top">
-                <image bindload="{{index.touchmove}}" src="{{userInfo.avatarUrl}}" class='userInfo_avatar' bindtap="clickAvatar"></image>
+                <image  src="{{userInfo.avatarUrl}}" class='userInfo_avatar' bindtap="clickAvatar"></image>
                 <view >
                    <button class='button_reset  button_wechat_login' plain='true' open-type="getUserInfo" bindgetuserinfo="getUserInfoByButton" wx:if="{{ !userInfo.nickName }}">微信登录</button>
                    <view wx:else class="user_info_name">

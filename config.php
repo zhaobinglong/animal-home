@@ -10,8 +10,8 @@ defined('LOG_PATH') or define('LOG_PATH', './log/');
 defined('QRCODE_PATH') or define('QRCODE_PATH', '../img/');
 
 // UNIBBS小程序信息
-defined('APPID') or define('APPID', 'wxa5157e1eaaeb33c7');
-defined('APPSECRET') or define('APPSECRET', '6a74a5d730328d28a0ab766616395a5d');
+defined('APPID') or define('APPID', '在这里输入自定义信息');
+defined('APPSECRET') or define('APPSECRET', '在这里输入自定义信息');
 
 
 // 腾讯地图KEY
