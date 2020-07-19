@@ -4,11 +4,9 @@
 
 <view wx:if="{{form.status == 0}}" class='detail_off'>
     <image src="../../../img/empty.png" class='icon_empty mg16'></image>
-    <view>信息不存在</view>
+    <view>帖子已删除</view>
     <view class='detail_off_back '>
-        <view class='button button_back ' bindtap="backHome">
-            回到主页
-        </view>
+        <view class='button button_back ' bindtap="backHome">回到首页</view>
     </view>
 </view>
 

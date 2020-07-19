@@ -23,10 +23,15 @@
   margin-right:16rpx;
 }
 .detail_off{
+  height: 100vh;
   text-align:center;
   color:#505050;
   padding-top:120rpx;
   font-size:28rpx;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 .detail_off_back{
   margin-top:48rpx;

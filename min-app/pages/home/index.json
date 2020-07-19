@@ -7,6 +7,7 @@
     "feed": "../../../components/feed/index",
     "fixButton": "../../../components/fixButton/index",
     "loading": "../../../components/loading/index",
-    "notice": "../../../components/notice/index"
+    "notice": "../../../components/notice/index",
+    "empty": "../../../components/empty/index"
   }
 }

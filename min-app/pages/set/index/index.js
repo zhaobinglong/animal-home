@@ -10,7 +10,7 @@ var app = getApp();
 Page({
   data: {
      userInfo:{
-      avatarUrl:'',
+      avatarUrl:'../../../img/animal.png',
       nickName:'点击绑定微信'
      },
      college:'',
@@ -187,7 +187,7 @@ Page({
          
          // 没有头像，给一个默认头像
          if(!res.avatarUrl){
-            res.avatarUrl = '../../../img/user.png'
+            res.avatarUrl = '../../../img/animal.png'
          }
          
          this.setData({

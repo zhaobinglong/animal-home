@@ -35,7 +35,7 @@
       {
         "pagePath": "pages/home/index",
         "iconPath": "img/tab/tabBar_place.png",
-        "selectedIconPath": "img/tab/tabBar_place.png",
+        "selectedIconPath": "img/tab/tabBar_place_select.png",
         "text": "首页"
       },
       {

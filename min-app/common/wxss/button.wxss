@@ -35,7 +35,7 @@
 }
 .button_back{
   color:#FFF;
-  background-color: #00caba;
+  background-color: #189AF8;
   width:272rpx;
   height:76rpx;
   line-height:76rpx;

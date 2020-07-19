@@ -16,9 +16,12 @@
              </view>
           </view> 
 
-          <block >
+          <block wx:if="{{ list.length }}">
             <waterfall list="{{list}}" load_over="{{load_over}}"></waterfall>
           </block> 
+          <block wx:else>
+            <empty></empty>
+          </block>           
     </view>
  <fixButton ></fixButton> 
 

@@ -86,7 +86,7 @@
 					"id": 2,
 					"name": "详情",
 					"pathName": "pages/date/detail/index",
-					"query": "id=3310",
+					"query": "id=3319",
 					"scene": 1001
 				},
 				{
