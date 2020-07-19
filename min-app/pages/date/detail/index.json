@@ -3,5 +3,6 @@
   "navigationBarTitleText": "详情",
   "usingComponents": {
     "goods": "../../../components/goods/index"
-   }
+   },
+   "navigationStyle": "custom"
 }

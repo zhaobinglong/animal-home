@@ -1,6 +1,6 @@
 <!-- 主体图片 -->
 <view class="detail_swiper" wx:if="{{ form.imgs.length }}">
-  <swiper indicator-dots  indicator-active-color="#7ed321" autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}" bindchange="swiperChange"  wx:if="{{ form.imgs.length }}">
+  <swiper indicator-dots  indicator-active-color="#7ed321" autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}" bindchange="swiperChange"  wx:if="{{ form.imgs.length }}" style="height: 400rpx">
     <swiper-item wx:key wx:for="{{form.imgs}}"  wx:for-item="imgname" wx:key="index" >
       <image bindtap="clickImg" src="{{imgname}}" class='swiper_item'  bindload='imgLoad'  mode="aspectFill" data-name="{{imgname}}"  />
     </swiper-item>

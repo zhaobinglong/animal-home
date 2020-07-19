@@ -1,3 +1,6 @@
+<view class="page_back" bindtap="goBack" style="top:{{ boundingClient.top  }}px; height: {{boundingClient.height}}px">
+  <i class="iconfont icon-back" style="font-size: 18px"></i>
+</view>
 
 <view wx:if="{{form.status == 0}}" class='detail_off'>
     <image src="../../../img/empty.png" class='icon_empty mg16'></image>
@@ -10,9 +13,10 @@
 </view>
 
 <view wx:else>
-
-      <!-- 信息主体 -->
-      <goods form = "{{form}}"></goods>
+      <view style="min-height: 200px">
+        <goods form = "{{form}}"></goods>
+      </view>
+      
       
       <!--  详情页菜单 -->
       <view class='page_detail'>
@@ -28,6 +32,9 @@
           </view>
           <view class='detail_cont_item flex' bindtap="editClick" wx:if="{{form.is_creater}}">
             编辑
+          </view>
+          <view class='detail_cont_item flex' bindtap="goBack" >
+            回到首页
           </view>
       </view>
       <view class=' date_edit_cont '>

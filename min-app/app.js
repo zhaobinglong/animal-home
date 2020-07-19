@@ -214,5 +214,11 @@ App({
       url: url
     })    
   },
-
+  
+  // 退回上一页
+  goBack (){
+    wx.navigateBack({
+      delta: 1
+    })
+  },
 });

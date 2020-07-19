@@ -10,6 +10,9 @@ const config = require("../../../config/index");
 let app = getApp();
 Page({
   data: {
+    boundingClien: {
+      top: 0
+    },
     imgbase:config.cdn_url,
     form: {},
     current_img:'',
@@ -90,6 +93,12 @@ Page({
     wx.showLoading();
     this.getDetail(this.data.id) 
     this.getComment(this.data.id)
+
+    let res = wx.getMenuButtonBoundingClientRect()
+    console.log(res)
+    this.setData({
+      boundingClient: res
+    })
   },
 
   // 获取详情
@@ -565,6 +574,10 @@ Page({
         })
       }
     })
+   },
+
+   goBack() {
+    app.backHome()
    }
 
 
