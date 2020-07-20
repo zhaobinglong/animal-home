@@ -5,12 +5,12 @@
 
           <view wx:for="{{list}}" wx:key="id" class='page_list_item'  wx:if="{{index%2==0 && item.status != '0'}}">
              
-                 <navigator class=''   url="/pages/date/detail/index?id={{item.id}}" hover-class="none">
+                 <navigator class='' url="/pages/date/detail/index?id={{item.id}}" hover-class="none">
 
 
                      <image mode ="widthFix" src="{{item.imgs[0]}}" class='page_list_img' wx:if="{{item.imgs.length}}" ></image>
                      <view class='page_list_item_bottom ' >
-                        <view class="page_list_cont {{item.status=='2'?'page_list_item_sell':''}}">
+                        <view class="page_list_cont}}">
                          {{item.cont}}
                         </view>
                         <view class='page_list_user flex between'>

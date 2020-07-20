@@ -187,7 +187,7 @@ class api {
 	// 获取指定用户发布的帖子
 	public function getListByUser() {
 		// $sql = 'SELECT e.id,e.openid,e.title,e.cont,e.college,e.imgs,e.imgs_detail,e.symbol,e.price,e.old_price,e.status,e.city,e.address,e.phone,e.level,e.classify,e.category,e.message,e.views,e.liked,e.updatetime,u.nickName,u.avatarUrl,u.status as user_status from ershou as e  left join user as u on e.openid = u.openid where e.status!=0 and  e.openid="' . $this->mypost->openid . '"  order by updatetime desc ';
-		$sql='SELECT * from ershou where openid="'.$this->mypost->openid.'"';
+		$sql='SELECT * from ershou where openid="'.$this->mypost->openid.'" and status!="0"';
 		$res = $this->db->dql($sql);
 		$data = array();
 		while ($row = $res->fetch_assoc()) {
